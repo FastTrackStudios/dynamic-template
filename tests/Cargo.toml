@@ -1,0 +1,39 @@
+[package]
+name = "dynamic-template-tests"
+version.workspace = true
+edition.workspace = true
+publish = false
+
+[dependencies]
+dynamic-template.workspace = true
+daw-proto.workspace = true
+daw-standalone.workspace = true
+roam-wire.workspace = true
+tempfile = "3.8"
+pretty_assertions = "1.4"
+insta = "1.34"
+tokio = { workspace = true, features = ["macros", "rt-multi-thread"] }
+
+[[test]]
+name = "01_no_unneccesary_folders"
+path = "01_no_unneccesary_folders.rs"
+
+[[test]]
+name = "02_scoped_resorting"
+path = "02_scoped_resorting.rs"
+
+[[test]]
+name = "03_assertion_sensitivity"
+path = "03_assertion_sensitivity.rs"
+
+[[test]]
+name = "04_visibility_classification"
+path = "04_visibility_classification.rs"
+
+[[test]]
+name = "05_auto_color"
+path = "05_auto_color.rs"
+
+[[test]]
+name = "multitrack_examples"
+path = "multitrack_examples.rs"

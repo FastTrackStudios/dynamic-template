@@ -104,7 +104,7 @@ pub fn strip_protools_markers(input: &str) -> String {
     let stripped = strip_playlist_take(name)
         .or_else(|| strip_playlist_region(name))
         .or_else(|| strip_simple_playlist(name))
-        .unwrap_or_else(|| Cow::Borrowed(name));
+        .unwrap_or(Cow::Borrowed(name));
 
     // Reconstruct with extension
     if ext.is_empty() {

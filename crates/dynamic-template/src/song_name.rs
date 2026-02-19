@@ -274,8 +274,7 @@ fn detect_with_fuzzy_matching(inputs: &[String], min_count: usize) -> HashSet<St
         // Find tokens that contain this one or that this one contains
         for other in &all_tokens {
             if token != other && token.len() >= MIN_TOKEN_LENGTH && other.len() >= MIN_TOKEN_LENGTH
-            {
-                if other.contains(token.as_str()) || token.contains(other.as_str()) {
+                && (other.contains(token.as_str()) || token.contains(other.as_str())) {
                     // Group under the shorter token (base form)
                     let base = if token.len() <= other.len() {
                         token
@@ -291,7 +290,6 @@ fn detect_with_fuzzy_matching(inputs: &[String], min_count: usize) -> HashSet<St
                         .or_default()
                         .insert(other.clone());
                 }
-            }
         }
     }
 
@@ -355,7 +353,7 @@ fn filter_song_names(
 /// Splits on common delimiters: space, dash, underscore, dot, slash
 fn tokenize(input: &str) -> Vec<String> {
     input
-        .split(|c: char| c == ' ' || c == '-' || c == '_' || c == '.' || c == '/' || c == '\\')
+        .split([' ', '-', '_', '.', '/', '\\'])
         .filter(|s| !s.is_empty())
         .map(|s| s.to_string())
         .collect()
@@ -391,9 +389,9 @@ pub fn strip_song_names(input: &str, song_names: &HashSet<String>) -> String {
 
                     // Clean up separators around the removed token
                     let before = before
-                        .trim_end_matches(|c: char| c == '-' || c == '_' || c == '.' || c == ' ');
+                        .trim_end_matches(['-', '_', '.', ' ']);
                     let after = after
-                        .trim_start_matches(|c: char| c == '-' || c == '_' || c == '.' || c == ' ');
+                        .trim_start_matches(['-', '_', '.', ' ']);
 
                     result = if before.is_empty() {
                         after.to_string()

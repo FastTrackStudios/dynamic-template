@@ -55,8 +55,8 @@ pub fn strip_tempo(input: &str) -> String {
     let after = &input[bpm_end..];
 
     // Clean up separators around the removed portion
-    let before = before.trim_end_matches(|c: char| c == '.' || c == '_' || c == ' ' || c == '-');
-    let after = after.trim_start_matches(|c: char| c == '.' || c == '_' || c == ' ' || c == '-');
+    let before = before.trim_end_matches(['.', '_', ' ', '-']);
+    let after = after.trim_start_matches(['.', '_', ' ', '-']);
 
     if before.is_empty() {
         after.to_string()

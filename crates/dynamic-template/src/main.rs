@@ -31,7 +31,7 @@ fn main() {
 
     if inputs.len() == 1 && !tree_only {
         // Single input - show detailed parsing info
-        analyze_single(&inputs[0], &config, verbose, json_output);
+        analyze_single(inputs[0], &config, verbose, json_output);
     } else {
         // Multiple inputs - show tree structure
         analyze_multiple(&inputs, &config, verbose, json_output);

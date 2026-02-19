@@ -1,5 +1,5 @@
 [workspace]
-members = ["crates/*"]
+members = ["crates/*", "tests"]
 resolver = "2"
 
 [workspace.package]
@@ -17,14 +17,14 @@ dynamic-template = { path = "crates/dynamic-template" }
 # Facet reflection framework
 facet = { git = "https://github.com/facet-rs/facet", branch = "main" }
 
-# ROAM service framework
-roam = { git = "https://github.com/bearcove/roam.git", branch = "main" }
-roam-wire = { git = "https://github.com/bearcove/roam.git", branch = "main" }
+# ROAM service framework (pinned — latest main needs peeps sub-crates not yet published)
+roam = { git = "https://github.com/bearcove/roam.git", rev = "30a8e10" }
+roam-wire = { git = "https://github.com/bearcove/roam.git", rev = "30a8e10" }
 
-# Extracted FastTrackStudio crates
-daw-proto = { git = "https://github.com/FastTrackStudios/daw.git", branch = "master" }
-daw-standalone = { git = "https://github.com/FastTrackStudios/daw.git", branch = "master" }
-actions-proto = { git = "https://github.com/FastTrackStudios/input_actions.git", branch = "master" }
+# Sibling repos (local paths)
+daw-proto = { path = "../daw/crates/daw-proto" }
+daw-standalone = { path = "../daw/crates/daw-standalone" }
+actions-proto = { path = "../input_actions/crates/actions-proto" }
 
 # Serialization
 serde = { version = "1.0", features = ["derive"] }
