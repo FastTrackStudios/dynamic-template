@@ -1,0 +1,38 @@
+[workspace]
+members = ["crates/*"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["FastTrack Studio"]
+license = "MIT OR Apache-2.0"
+
+[workspace.dependencies]
+# Internal crates
+color-palette = { path = "crates/color-palette" }
+dynamic-template-proto = { path = "crates/dynamic-template-proto" }
+dynamic-template = { path = "crates/dynamic-template" }
+
+# Facet reflection framework
+facet = { git = "https://github.com/facet-rs/facet", branch = "main" }
+
+# ROAM service framework
+roam = { git = "https://github.com/bearcove/roam.git", branch = "main" }
+roam-wire = { git = "https://github.com/bearcove/roam.git", branch = "main" }
+
+# Extracted FastTrackStudio crates
+daw-proto = { git = "https://github.com/FastTrackStudios/daw.git", branch = "master" }
+daw-standalone = { git = "https://github.com/FastTrackStudios/daw.git", branch = "master" }
+actions-proto = { git = "https://github.com/FastTrackStudios/input_actions.git", branch = "master" }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+thiserror = "2.0"
+anyhow = "1.0"
+
+# Async runtime
+tokio = { version = "1.48", features = ["full"] }
+
+[workspace.lints.rust]
+unused = "warn"
