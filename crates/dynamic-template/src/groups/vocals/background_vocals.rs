@@ -140,7 +140,6 @@ impl From<BackgroundVocals> for ItemMetadataGroup {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use crate::{default_config, OrganizeIntoTracks};
     use daw_proto::{assert_tracks_equal, TrackStructureBuilder};
 

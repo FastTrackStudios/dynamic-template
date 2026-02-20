@@ -81,6 +81,7 @@ pub type ItemMetadataGroup = Group<ItemMetadata>;
 ///
 /// Allows passing strings, vectors, or arrays directly without explicit conversions.
 #[derive(Default, Clone)]
+#[allow(dead_code)]
 pub struct ItemMetadataBuilder {
     rec_tag: Option<String>,
     group: Option<Vec<String>>,
@@ -102,6 +103,7 @@ pub struct ItemMetadataBuilder {
     tempo: Option<f32>,
 }
 
+#[allow(dead_code)]
 impl ItemMetadataBuilder {
     /// Create a new builder with default values
     pub fn new() -> Self {

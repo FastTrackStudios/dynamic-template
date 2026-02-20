@@ -14,6 +14,9 @@ color-palette = { path = "crates/color-palette" }
 dynamic-template-proto = { path = "crates/dynamic-template-proto" }
 dynamic-template = { path = "crates/dynamic-template" }
 
+# Monarchy hierarchy framework
+monarchy = { git = "https://github.com/FastTrackStudios/monarchy.git", branch = "main" }
+
 # Facet reflection framework
 facet = { git = "https://github.com/facet-rs/facet", branch = "main" }
 
@@ -36,3 +39,4 @@ tokio = { version = "1.48", features = ["full"] }
 
 [workspace.lints.rust]
 unused = "warn"
+dead_code = "allow"

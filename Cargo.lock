@@ -444,6 +444,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e629a66d692cb9ff1a1c664e41771b3dcaf961985a9774c0eb0bd1b51cf60a48"
 
 [[package]]
+name = "castaway"
+version = "0.2.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "dec551ab6e7578819132c713a93c022a05d60159dc86e7a7050223577484c55a"
+dependencies = [
+ "rustversion",
+]
+
+[[package]]
 name = "cbc"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -560,6 +569,20 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "faf9468729b8cbcea668e36183cb69d317348c2e08e994829fb56ebfdfbaac34"
 dependencies = [
  "windows-sys 0.61.2",
+]
+
+[[package]]
+name = "compact_str"
+version = "0.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3fdb1325a1cece981e8a296ab8f0f9b63ae357bd0784a9faaf548cc7b480707a"
+dependencies = [
+ "castaway",
+ "cfg-if",
+ "itoa 1.0.17",
+ "rustversion",
+ "ryu",
+ "static_assertions",
 ]
 
 [[package]]
@@ -793,6 +816,8 @@ dependencies = [
  "facet",
  "futures",
  "roam",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]
@@ -811,6 +836,7 @@ version = "0.1.0"
 dependencies = [
  "daw-proto",
  "keyflow",
+ "peeps",
  "roam",
  "roam-telemetry",
  "tokio",
@@ -950,11 +976,14 @@ dependencies = [
 name = "dynamic-template-tests"
 version = "0.1.0"
 dependencies = [
+ "color-palette",
  "daw-proto",
  "daw-standalone",
  "dynamic-template",
  "insta",
+ "monarchy",
  "pretty_assertions",
+ "roam",
  "roam-wire",
  "tempfile",
  "tokio",
@@ -1115,6 +1144,7 @@ source = "git+https://github.com/facet-rs/facet?branch=main#2dd2fca4fca85dfc3903
 dependencies = [
  "autocfg",
  "camino",
+ "compact_str",
  "const-fnv1a-hash",
  "iddqd",
  "impls",
@@ -3165,6 +3195,42 @@ dependencies = [
  "itoa 1.0.17",
  "memchr",
  "ryu",
+]
+
+[[package]]
+name = "peeps"
+version = "0.1.0"
+source = "git+https://github.com/bearcove/peeps?branch=main#24fa50418c8761d71204a4ebf4a0b696f5578c87"
+dependencies = [
+ "compact_str",
+ "facet-json",
+ "facet-value",
+ "parking_lot",
+ "peeps-types",
+ "peeps-wire",
+ "tokio",
+]
+
+[[package]]
+name = "peeps-types"
+version = "0.1.0"
+source = "git+https://github.com/bearcove/peeps?branch=main#24fa50418c8761d71204a4ebf4a0b696f5578c87"
+dependencies = [
+ "compact_str",
+ "facet",
+ "facet-format",
+ "facet-value",
+]
+
+[[package]]
+name = "peeps-wire"
+version = "0.1.0"
+source = "git+https://github.com/bearcove/peeps?branch=main#24fa50418c8761d71204a4ebf4a0b696f5578c87"
+dependencies = [
+ "compact_str",
+ "facet",
+ "facet-json",
+ "peeps-types",
 ]
 
 [[package]]

@@ -6,9 +6,8 @@
 //! 3. Scoped re-sort moves items to the correct location and re-organizes hierarchy
 
 use dynamic_template::*;
-use monarchy::{
-    monarchy_sort, move_unsorted_to_group, reapply_collapse, StructureAssertions, Visitable,
-};
+use monarchy::{monarchy_sort, move_unsorted_to_group, reapply_collapse};
+use monarchy::test_utils::StructureAssertions;
 
 type Result<T> = core::result::Result<T, Box<dyn std::error::Error>>;
 
