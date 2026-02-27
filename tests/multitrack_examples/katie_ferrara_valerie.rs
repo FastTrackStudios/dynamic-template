@@ -48,11 +48,18 @@ fn katie_ferrara_valerie() -> Result<()> {
     //   ├─ Bass                     ← 04.Bass DI
     //   └─ Amp                      ← 05.Bass Amp
     // Guitars/
-    //   ├─ Acoustic                 ← 06.Acoustic
-    //   ├─ Guitars 1/2              ← 07/09 Gtr DI
-    //   ├─ Amp 1/2                  ← 08/10 Gtr Amp
-    //   ├─ Solo DI                  ← 11.Gtr DI.Solo
-    //   └─ Solo Amp                 ← 12.Gtr Amp.Solo
+    //   ├─ Electric/
+    //   │   ├─ Solo/
+    //   │   │   ├─ Amp              ← 12.Gtr Amp.Solo
+    //   │   │   └─ DI               ← 11.Gtr DI.Solo
+    //   │   └─ Electric/            ← no-arrangement group
+    //   │       ├─ Amp/
+    //   │       │   ├─ Amp 1        ← 08.Gtr Amp
+    //   │       │   └─ Amp 2        ← 10.Gtr Amp.Riff
+    //   │       └─ DI/
+    //   │           ├─ DI 1         ← 07.Gtr DI
+    //   │           └─ DI 2         ← 09.Gtr DI.Riff
+    //   └─ Acoustic                 ← 06.Acoustic
     // Vocals/
     //   ├─ Lead/
     //   │   ├─ Lead 1               ← 13.Vocal
@@ -79,20 +86,30 @@ fn katie_ferrara_valerie() -> Result<()> {
         .item("05.Bass Amp_01-01.wav")
         .end()
         .folder("Guitars")
-        .track("Acoustic")
-        .item("06.Acoustic_01-01.wav")
-        .track("Guitars 1")
-        .item("07.Gtr DI_01-01.wav")
+        .folder("Electric")
+        .folder("Solo")
+        .track("Amp")
+        .item("12.Gtr Amp.Solo_01-01.wav")
+        .track("DI")
+        .item("11.Gtr DI.Solo_01-01.wav")
+        .end()
+        .folder("Electric")
+        .folder("Amp")
         .track("Amp 1")
         .item("08.Gtr Amp_01-01.wav")
-        .track("Guitars 2")
-        .item("09.Gtr DI.Riff_01-01.wav")
         .track("Amp 2")
         .item("10.Gtr Amp.Riff_01-01.wav")
-        .track("Solo DI")
-        .item("11.Gtr DI.Solo_01-01.wav")
-        .track("Solo Amp")
-        .item("12.Gtr Amp.Solo_01-01.wav")
+        .end()
+        .folder("DI")
+        .track("DI 1")
+        .item("07.Gtr DI_01-01.wav")
+        .track("DI 2")
+        .item("09.Gtr DI.Riff_01-01.wav")
+        .end()
+        .end()
+        .end()
+        .track("Acoustic")
+        .item("06.Acoustic_01-01.wav")
         .end()
         .folder("Vocals")
         .folder("Lead")

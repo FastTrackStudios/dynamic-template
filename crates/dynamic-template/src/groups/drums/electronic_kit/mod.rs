@@ -45,7 +45,6 @@ impl From<ElectronicKit> for Group<ItemMetadata> {
         Group::builder("Electronic Kit")
             .patterns(vec![
                 "electronic",
-                "elec",
                 "e-kit",
                 "ekit",
                 "808",

@@ -70,7 +70,7 @@ fn jared_james_nichols() -> Result<()> {
     //   │   └─ OH/                  ← OH Hat, OH Ride, OH Mono
     //   └─ Rooms                    ← Crotch (now matches Drums/Rooms group)
     // Bass/                         ← Bass DI, Bass Mic
-    // Guitars/                      ← Gtr Bus 1/2, Solo, Solo LEFT/RIGHT
+    // Guitars/                      ← Solo folder (SoloGtr tracks) + Guitars folder (Gtr Bus)
     // Guide                         ← Smart Tempo Multitrack Set 1
     // Reference                     ← Man In the Box Print
     // Unsorted/                     ← Mono, Mono U47, Talk Box, Jared vox
@@ -140,16 +140,20 @@ fn jared_james_nichols() -> Result<()> {
         .item("23 Bass Mic .wav")
         .end()
         .folder("Guitars")
-        .track("Bus 1")
-        .item("24 Gtr Bus .wav")
-        .track("Bus 2")
-        .item("25 Gtr Bus.dup1 .wav")
-        .track("Solo")
-        .item("26 SoloGtr Bus.d .wav")
-        .track("Solo LEFT")
+        .folder("Solo")
+        .track("Left")
         .item("27 SoloGtr RM Left .wav")
-        .track("Solo RIGHT")
+        .track("Right")
         .item("28 SoloGtr RM Right .wav")
+        .track("Electric")
+        .item("26 SoloGtr Bus.d .wav")
+        .end()
+        .folder("Guitars")
+        .track("Electric 1")
+        .item("24 Gtr Bus .wav")
+        .track("Electric 2")
+        .item("25 Gtr Bus.dup1 .wav")
+        .end()
         .end()
         .track("SFX")
         .item("29 Talk Box .wav")

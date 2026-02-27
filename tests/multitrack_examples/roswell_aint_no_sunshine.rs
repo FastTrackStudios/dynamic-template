@@ -60,12 +60,15 @@ fn roswell_aint_no_sunshine() -> Result<()> {
     //   ├─ Bass                    ← 03.Bass DI.01_02.wav (DI)
     //   └─ Amp                     ← 04.Bass Amp 47X_01.wav
     // Guitars/
-    //   ├─ Acoustic                ← 10.Acoustic 47X_01.wav
-    //   ├─ Guitars                 ← 05.Gtr DI.01_02.wav (DI)
-    //   ├─ Amp                     ← 06.Gtr Amp.67X_01.wav
-    //   ├─ Warren Amp              ← 07.Gtr Warren Amp.01_02.wav
-    //   ├─ Solo DI                 ← 08.Gtr Solo DI.01_02.wav
-    //   └─ Solo Amp                ← 09.Gtr Solo Amp.67X_01.wav
+    //   ├─ Electric/               ← all electric guitars grouped
+    //   │   ├─ Warren              ← 07.Gtr Warren Amp (performer=Warren, MultiMic=Amp)
+    //   │   ├─ Solo/
+    //   │   │   ├─ Amp             ← 09.Gtr Solo Amp.67X
+    //   │   │   └─ DI              ← 08.Gtr Solo DI.01
+    //   │   └─ Electric/
+    //   │       ├─ Amp             ← 06.Gtr Amp.67X
+    //   │       └─ DI              ← 05.Gtr DI.01
+    //   └─ Acoustic                ← 10.Acoustic 47X_01.wav
     // Vocals                       ← 11.Vocal.47X_01.wav
     // Orchestra/
     //   ├─ Strings 1               ← STRINGS HIGH.wav
@@ -109,18 +112,24 @@ fn roswell_aint_no_sunshine() -> Result<()> {
         .item("04.Bass Amp 47X_01.wav")
         .end()
         .folder("Guitars")
-        .track("Acoustic")
-        .item("10.Acoustic 47X_01.wav")
-        .track("Guitars")
-        .item("05.Gtr DI.01_02.wav")
+        .folder("Electric")
+        .track("Warren")
+        .item("07.Gtr Warren Amp.01_02.wav")
+        .folder("Solo")
+        .track("Amp")
+        .item("09.Gtr Solo Amp.67X_01.wav")
+        .track("DI")
+        .item("08.Gtr Solo DI.01_02.wav")
+        .end()
+        .folder("Electric")
         .track("Amp")
         .item("06.Gtr Amp.67X_01.wav")
-        .track("Warren Amp")
-        .item("07.Gtr Warren Amp.01_02.wav")
-        .track("Solo DI")
-        .item("08.Gtr Solo DI.01_02.wav")
-        .track("Solo Amp")
-        .item("09.Gtr Solo Amp.67X_01.wav")
+        .track("DI")
+        .item("05.Gtr DI.01_02.wav")
+        .end()
+        .end()
+        .track("Acoustic")
+        .item("10.Acoustic 47X_01.wav")
         .end()
         .track("Vocals")
         .item("11.Vocal.47X_01.wav")

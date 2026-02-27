@@ -78,16 +78,20 @@ fn derek_and_the_dominos_layla() -> Result<()> {
     //   ├─ Bass                     ← 02.Bass DI_01.wav
     //   └─ Amp                      ← 03.Bass Amp_01.wav
     // Guitars/
-    //   ├─ Acoustic/
-    //   │   ├─ Acoustic 1           ← 21. Acoustic_01.wav
-    //   │   ├─ Acoustic 2           ← 22. Acoustic Dbl_01.wav
-    //   │   ├─ Acoustic 3           ← 23.Acoustic Lead Line_01.wav
-    //   │   ├─ Acoustic 4           ← 24.Acoustic Lead Line Dbl_01.wav
-    //   │   └─ Outro                ← 25.Acoustic Outro_01.wav
-    //   ├─ Guitars 1-6              ← Rhythm/Lead DI tracks
-    //   ├─ Amp 1-3, Amp DBL 1-3     ← Rhythm/Lead Amp tracks
-    //   ├─ Solo DI/Amp              ← Solo guitar tracks
-    //   └─ Outro DI/Amp/DBL         ← Outro guitar tracks
+    //   ├─ Electric/
+    //   │   ├─ Lead/
+    //   │   │   ├─ Main/ → Amp(×2), DI(×2)
+    //   │   │   └─ DBL/ → Amp(×2), DI(×2)
+    //   │   ├─ Rhythm/
+    //   │   │   ├─ Main/ → Amp, DI
+    //   │   │   └─ DBL/ → Amp, DI
+    //   │   ├─ Solo/ → Amp, DI
+    //   │   └─ Outro/
+    //   │       ├─ Main/ → Amp, DI
+    //   │       └─ DBL/ → Amp, DI
+    //   └─ Acoustic/
+    //       ├─ Acoustic 1-4
+    //       └─ Outro
     // Keys                          ← 26. Piano_01.wav
     // Vocals/
     //   ├─ Lead                     ← 27. Vocal_02.wav
@@ -111,6 +115,72 @@ fn derek_and_the_dominos_layla() -> Result<()> {
         .item("03.Bass Amp_01.wav")
         .end()
         .folder("Guitars")
+        .folder("Electric")
+        .folder("Lead")
+        .folder("Main")
+        .folder("Amp")
+        .track("Amp 1")
+        .item("09.Lead Harm Gtr Amp_02.wav")
+        .track("Amp 2")
+        .item("13. Lead Gtr Amp_02.wav")
+        .end()
+        .folder("DI")
+        .track("DI 1")
+        .item("08.Lead Harm Gtr DI_02.wav")
+        .track("DI 2")
+        .item("12. Lead Gtr DI_02.wav")
+        .end()
+        .end()
+        .folder("DBL")
+        .folder("Amp")
+        .track("Amp 1")
+        .item("11.Lead Harm Gtr Amp Dbl_02.wav")
+        .track("Amp 2")
+        .item("15. Lead Gtr Amp Dbl_02.wav")
+        .end()
+        .folder("DI")
+        .track("Lead 1")
+        .item("10.Lead Harm Gtr DI Dbl_02.wav")
+        .track("Lead 2")
+        .item("14. Lead Gtr DI Dbl_02.wav")
+        .end()
+        .end()
+        .end()
+        .folder("Rhythm")
+        .folder("Main")
+        .track("Amp")
+        .item("05.Rhythm Gtr Amp_02.wav")
+        .track("DI")
+        .item("04.Rhythm Gtr DI_02.wav")
+        .end()
+        .folder("DBL")
+        .track("Amp")
+        .item("07.Rhythm Gtr Amp Dbl_02.wav")
+        .track("DI")
+        .item("06.Rhythm Gtr DI Dbl_02.wav")
+        .end()
+        .end()
+        .folder("Solo")
+        .track("Amp")
+        .item("16. Solo Gtr Amp_02.wav")
+        .track("DI")
+        .item("16. Solo Gtr DI_02.wav")
+        .end()
+        .folder("Outro")
+        .folder("Main")
+        .track("Amp")
+        .item("18. Outro Gtr Amp_01.wav")
+        .track("DI")
+        .item("17. Outro Gtr DI_01.wav")
+        .end()
+        .folder("DBL")
+        .track("Amp")
+        .item("20. Outro Gtr Amp Dbl_01.wav")
+        .track("DI")
+        .item("19. Outro Gtr DI Dbl_01.wav")
+        .end()
+        .end()
+        .end()
         .folder("Acoustic")
         .track("Acoustic 1")
         .item("21. Acoustic_01.wav")
@@ -123,42 +193,6 @@ fn derek_and_the_dominos_layla() -> Result<()> {
         .track("Outro")
         .item("25.Acoustic Outro_01.wav")
         .end()
-        .track("Guitars 1")
-        .item("04.Rhythm Gtr DI_02.wav")
-        .track("Amp 1")
-        .item("05.Rhythm Gtr Amp_02.wav")
-        .track("Guitars 2")
-        .item("06.Rhythm Gtr DI Dbl_02.wav")
-        .track("Amp DBL 1")
-        .item("07.Rhythm Gtr Amp Dbl_02.wav")
-        .track("Guitars 3")
-        .item("08.Lead Harm Gtr DI_02.wav")
-        .track("Amp 2")
-        .item("09.Lead Harm Gtr Amp_02.wav")
-        .track("Guitars 4")
-        .item("10.Lead Harm Gtr DI Dbl_02.wav")
-        .track("Amp DBL 2")
-        .item("11.Lead Harm Gtr Amp Dbl_02.wav")
-        .track("Guitars 5")
-        .item("12. Lead Gtr DI_02.wav")
-        .track("Amp 3")
-        .item("13. Lead Gtr Amp_02.wav")
-        .track("Guitars 6")
-        .item("14. Lead Gtr DI Dbl_02.wav")
-        .track("Amp DBL 3")
-        .item("15. Lead Gtr Amp Dbl_02.wav")
-        .track("Solo Amp")
-        .item("16. Solo Gtr Amp_02.wav")
-        .track("Solo DI")
-        .item("16. Solo Gtr DI_02.wav")
-        .track("Outro DI")
-        .item("17. Outro Gtr DI_01.wav")
-        .track("Outro Amp")
-        .item("18. Outro Gtr Amp_01.wav")
-        .track("Outro DI DBL")
-        .item("19. Outro Gtr DI Dbl_01.wav")
-        .track("Outro Amp DBL")
-        .item("20. Outro Gtr Amp Dbl_01.wav")
         .end()
         .track("Keys")
         .item("26. Piano_01.wav")

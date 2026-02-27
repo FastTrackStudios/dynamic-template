@@ -108,7 +108,8 @@ fn beatles_girl() -> Result<()> {
         .end();
 
     // --- Guitars ---
-    // Sam and Perry are grouped under Acoustic (from J160 and Framus patterns)
+    // "AC GTR 1" has "GTR" → ElectricGuitar → gets "Electric" display name, comes before Acoustic.
+    // Sam and Perry are grouped under Acoustic (from J160 and Framus patterns).
     let acoustic = TrackGroup::folder("Acoustic")
         .track("Acoustic")
         .item("Acoustic Guitar_TAPE .wav")
@@ -121,9 +122,9 @@ fn beatles_girl() -> Result<()> {
         .end();
 
     let guitars = TrackGroup::folder("Guitars")
-        .group(acoustic)
-        .track("AC 1")
+        .track("Electric")
         .item("AC GTR 1_01.wav")
+        .group(acoustic)
         .end();
 
     // --- Vocals ---

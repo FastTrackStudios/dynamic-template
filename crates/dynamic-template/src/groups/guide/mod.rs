@@ -117,40 +117,17 @@ impl From<Sections> for Group<ItemMetadata> {
     fn from(_val: Sections) -> Self {
         Group::builder("Sections")
             .patterns(vec![
-                // Main sections
-                "intro",
-                "verse",
-                "verse 1",
-                "verse 2",
-                "verse 3",
-                "verse 4",
-                "verse 5",
-                "verse 6",
+                // Explicit section markers (multi-word or unambiguous — avoids stealing
+                // "Solo Gtr", "Outro Gtr", "Chorus Harmony" etc. from instrument groups)
                 "pre chorus",
                 "pre-chorus",
                 "prechorus",
-                "pre chorus 1",
-                "pre chorus 2",
-                "pre chorus 3",
-                "pre chorus 4",
-                "chorus",
-                "chorus 1",
-                "chorus 2",
-                "chorus 3",
-                "chorus 4",
                 "post chorus",
                 "post-chorus",
                 "postchorus",
-                "bridge",
-                "bridge 1",
-                "bridge 2",
-                "bridge 3",
-                "bridge 4",
                 "breakdown",
                 "interlude",
                 "instrumental",
-                "solo",
-                "outro",
                 "ending",
                 "tag",
                 "vamp",
@@ -158,7 +135,6 @@ impl From<Sections> for Group<ItemMetadata> {
                 "refrain",
                 "acapella",
                 "a capella",
-                "rap",
                 "exhortation",
                 // Numbered sections (common in arrangements)
                 "section 1",
@@ -186,7 +162,6 @@ impl From<DynamicCues> for Group<ItemMetadata> {
                 // Energy/intensity cues
                 "build",
                 "slowly build",
-                "swell",
                 "all in",
                 "all-in",
                 "allin",

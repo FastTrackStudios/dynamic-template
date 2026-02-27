@@ -1,5 +1,6 @@
 //! Acoustic guitar group definition
 
+use super::mandolin::Mandolin;
 use crate::item_metadata::ItemMetadata;
 use monarchy::Group;
 
@@ -50,6 +51,7 @@ impl From<AcousticGuitar> for Group<ItemMetadata> {
                 "Yamaha FG",
                 "Epiphone",
             ])
+            .group(Mandolin)
             .build()
     }
 }

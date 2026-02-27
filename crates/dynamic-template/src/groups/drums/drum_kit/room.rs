@@ -47,9 +47,12 @@ impl From<Room> for ItemMetadataGroup {
                 "mid-side", // Hyphenated
                 "ms mic",   // Mid-side abbreviation
             ])
-            // Exclude cymbal-related patterns so they go to Cymbals group instead
-            // Also exclude snare patterns so "SNR VERB" goes to Snare, not Rooms
+            // Exclude cymbal-related patterns so they go to Cymbals group instead.
+            // Also exclude snare patterns so "SNR VERB" goes to Snare, not Rooms.
+            // Exclude non-drum instrument keywords so "Piano Room Mono", "Guitar Room",
+            // "Vocal Room" etc. route to their own instrument groups instead.
             .exclude([
+                // Cymbals / hi-hats
                 "oh",
                 "overhead",
                 "overheads",
@@ -59,9 +62,20 @@ impl From<Room> for ItemMetadataGroup {
                 "hi hat",
                 "hh",
                 "hat",
+                // Snare
                 "snr",
                 "snare",
                 "sn",
+                // Non-drum instruments — their room mics belong with the instrument, not Drums
+                "piano",
+                "guitar",
+                "gtr",
+                "violin",
+                "fiddle",
+                "cello",
+                "vocal",
+                "voice",
+                "vox",
             ])
             .field_value_descriptors(ItemMetadataField::MultiMic, room_position_descriptors)
             .build()

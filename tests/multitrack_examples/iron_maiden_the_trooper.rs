@@ -42,8 +42,8 @@ fn iron_maiden_the_trooper() -> Result<()> {
     //   ├─ Bass                    ← 12-Bass DI-TheTrooper.wav (DI)
     //   └─ Amp                     ← 13-Bass Amp-TheTrooper.wav
     // Guitars/
-    //   ├─ Rhy L                   ← 15-Rhy Gtr L-TheTrooper.wav (song name stripped)
-    //   └─ Rhy R                   ← 16-Rhy Gtr R-TheTrooper.wav (song name stripped)
+    //   ├─ L                       ← 15-Rhy Gtr L-TheTrooper.wav ("Rhy" arrangement collapses since only one)
+    //   └─ R                       ← 16-Rhy Gtr R-TheTrooper.wav
     // Vocals/
     //   ├─ Vocals 1                ← 21-Vocal 1-TheTrooper.wav
     //   ├─ Vocals 2                ← 22-Vocal 2-TheTrooper.wav
@@ -69,9 +69,9 @@ fn iron_maiden_the_trooper() -> Result<()> {
         .item("13-Bass Amp-TheTrooper.wav")
         .end()
         .folder("Guitars")
-        .track("Rhy L")
+        .track("L")
         .item("15-Rhy Gtr L-TheTrooper.wav")
-        .track("Rhy R")
+        .track("R")
         .item("16-Rhy Gtr R-TheTrooper.wav")
         .end()
         .folder("Vocals")

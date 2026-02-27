@@ -58,12 +58,13 @@ fn beatles_dont_let_me_down() -> Result<()> {
         .end();
 
     // --- Guitars ---
-    // Items expanded to separate tracks
+    // "Gtr" now routes into ElectricGuitar group, giving proper DI/Amp MultiMic names.
+    // Amp descriptor comes first in field_value_descriptors order.
     let guitars = TrackGroup::folder("Guitars")
-        .track("Guitars")
-        .item("06.Gtr DI_01.wav")
         .track("Amp")
         .item("07.Gtr Amp_01.wav")
+        .track("DI")
+        .item("06.Gtr DI_01.wav")
         .end();
 
     // --- Keys ---

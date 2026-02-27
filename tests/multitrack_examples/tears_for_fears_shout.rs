@@ -80,9 +80,9 @@ fn tears_for_fears_shout() -> Result<()> {
     //   │   ├─ Hi Hat 1             ← 05.Hi Hat Close
     //   │   └─ Hi Hat 2             ← 06.Hi Hat Room
     //   └─ Rooms/
-    //       ├─ Amp/                 ← Room amps in subfolder
     //       ├─ Rooms 1              ← 02.Kick.Room
     //       └─ Rooms 2              ← 10.Toms etc Room
+    // Note: Guitar.Amp.Room tracks excluded from Drums/Rooms (guitar exclusion), now in Guitars/Amp
     // Percussion                    ← 26.Weird Synth Patch - CASIO Timpani (timpani)
     // Bass                          ← 13.Bass
     // Guitars/
@@ -120,12 +120,6 @@ fn tears_for_fears_shout() -> Result<()> {
         .item("06.Hi Hat Room_01-02.wav")
         .end()
         .folder("Rooms")
-        .folder("Amp")
-        .track("Amp 1")
-        .item("16.Guitar.Amp.Room.Heavy.Rakes_01-02.wav")
-        .track("Amp 2")
-        .item("19.Guitar.Amp.Room.Two_01-02.wav")
-        .end()
         .track("Rooms 1")
         .item("02.Kick.Room_01-02.wav")
         .track("Rooms 2")
@@ -141,8 +135,12 @@ fn tears_for_fears_shout() -> Result<()> {
         .track("Electric 1")
         .item("15.Guitar.Amp.Heavy.Rakes_01-02.wav")
         .track("Electric 2")
-        .item("18.Guitar.Amp.Two_01-02.wav")
+        .item("16.Guitar.Amp.Room.Heavy.Rakes_01-02.wav")
         .track("Electric 3")
+        .item("18.Guitar.Amp.Two_01-02.wav")
+        .track("Electric 4")
+        .item("19.Guitar.Amp.Room.Two_01-02.wav")
+        .track("Electric 5")
         .item("21.Guitar.Amp_01-02.wav")
         .end()
         .folder("DI")

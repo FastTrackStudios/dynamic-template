@@ -19,7 +19,7 @@ mod tempo;
 pub use error::{Error, Result};
 pub use groups::{
     Bass, Choir, Drums, Guide, Guitars, Harmonica, Horns, Keys, Orchestra, Percussion, Reference,
-    Synths, Vocals, SFX,
+    Strings, Synths, Vocals, SFX,
 };
 pub use item_metadata::ItemMetadata;
 
@@ -60,6 +60,7 @@ pub fn default_config() -> DynamicTemplateConfig {
         .group(Synths)
         .group(Horns)
         .group(Harmonica)
+        .group(Strings)
         .group(Vocals)
         .group(Choir)
         .group(Orchestra)

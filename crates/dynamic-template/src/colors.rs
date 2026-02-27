@@ -45,6 +45,7 @@ pub mod groups {
     pub const SYNTHS: Color = palette::violet::S500;
     pub const HORNS: Color = palette::amber::S400;
     pub const HARMONICA: Color = palette::stone::S500;
+    pub const FIDDLE: Color = palette::rose::S600;
     pub const VOCALS: Color = palette::pink::S500;
     pub const CHOIR: Color = palette::purple::S300;
     pub const ORCHESTRA: Color = palette::purple::S600;
@@ -243,6 +244,10 @@ static COLOR_MAP: LazyLock<HashMap<&'static str, Color>> = LazyLock::new(|| {
     m.insert("synths", groups::SYNTHS);
     m.insert("horns", groups::HORNS);
     m.insert("harmonica", groups::HARMONICA);
+    m.insert("fiddle", groups::FIDDLE);
+    m.insert("violin", groups::FIDDLE);
+    m.insert("viola", groups::FIDDLE);
+    m.insert("cello", groups::FIDDLE);
     m.insert("vocals", groups::VOCALS);
     m.insert("choir", groups::CHOIR);
     m.insert("orchestra", groups::ORCHESTRA);

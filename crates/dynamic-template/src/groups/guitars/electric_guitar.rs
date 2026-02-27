@@ -20,7 +20,9 @@ impl From<ElectricGuitar> for ItemMetadataGroup {
                 "Pick",
                 "Chug",
                 "Rhythm",
+                "Slide",
                 "Solo",
+                "Outro",
                 "Phaser",
                 "Pitch",
                 "Wah",
@@ -77,7 +79,9 @@ impl From<ElectricGuitar> for ItemMetadataGroup {
             .prefix("E")
             .patterns([
                 "electric",
+                "elec", // Common abbreviation for Electric (as in "Elec Gui")
                 "guitar",
+                "gtr",  // Very common 3-letter abbreviation used by engineers
                 "eg", // Common abbreviation for Electric Guitar
                 "lead guitar",
                 "lead_guitar",

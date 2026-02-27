@@ -60,12 +60,14 @@ fn led_zeppelin_the_ocean() -> Result<()> {
     //   ├─ Bass               ← 07. Bass DI_01.wav (DI)
     //   └─ Amp                ← 08. Bass ReAmp_01.wav (ReAmp)
     // Guitars/
-    //   ├─ 09. L Main Riff.A1 ← 09. Gtr L Main Riff.A1_01.wav
-    //   ├─ 10. L Main Riff.A2 ← 10. Gtr L Main Riff.A2_01.wav
-    //   ├─ 11. Gtr_L.A1       ← 11. Gtr_L.A1_01.wav
-    //   ├─ 12. Gtr_L.A2       ← 12. Gtr_L.A2_01.wav
-    //   ├─ 13. Gtr_R.A1       ← 13. Gtr_R.A1_01.wav
-    //   └─ 14. Gtr_R.A2       ← 14. Gtr_R.A2_01.wav
+    //   ├─ L/                  ← Channel L group (all Gtr L tracks)
+    //   │   ├─ Electric 1      ← 09. Gtr L Main Riff.A1_01.wav
+    //   │   ├─ Electric 2      ← 10. Gtr L Main Riff.A2_01.wav
+    //   │   ├─ Electric 3      ← 11. Gtr_L.A1_01.wav
+    //   │   └─ Electric 4      ← 12. Gtr_L.A2_01.wav
+    //   └─ R/                  ← Channel R group
+    //       ├─ Electric 1      ← 13. Gtr_R.A1_01.wav
+    //       └─ Electric 2      ← 14. Gtr_R.A2_01.wav
     // Vocals/
     //   ├─ Outro/
     //   │   ├─ Outro 1        ← 23. Outro Vocal 1_01.wav
@@ -111,18 +113,22 @@ fn led_zeppelin_the_ocean() -> Result<()> {
         .item("08. Bass ReAmp_01.wav")
         .end()
         .folder("Guitars")
-        .track("L Main Riff.A1")
+        .folder("L")
+        .track("Electric 1")
         .item("09. Gtr L Main Riff.A1_01.wav")
-        .track("L Main Riff.A2")
+        .track("Electric 2")
         .item("10. Gtr L Main Riff.A2_01.wav")
-        .track("Gtr_L.A1")
+        .track("Electric 3")
         .item("11. Gtr_L.A1_01.wav")
-        .track("Gtr_L.A2")
+        .track("Electric 4")
         .item("12. Gtr_L.A2_01.wav")
-        .track("Gtr_R.A1")
+        .end()
+        .folder("R")
+        .track("Electric 1")
         .item("13. Gtr_R.A1_01.wav")
-        .track("Gtr_R.A2")
+        .track("Electric 2")
         .item("14. Gtr_R.A2_01.wav")
+        .end()
         .end()
         .folder("Vocals")
         .folder("Lead")

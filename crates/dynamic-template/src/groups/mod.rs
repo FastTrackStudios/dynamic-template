@@ -12,6 +12,7 @@ pub mod orchestra;
 pub mod percussion;
 pub mod reference;
 pub mod sfx;
+pub mod strings;
 pub mod synths;
 pub mod vocals;
 
@@ -30,5 +31,6 @@ pub use orchestra::Orchestra;
 pub use percussion::Percussion;
 pub use reference::Reference;
 pub use sfx::SFX;
+pub use strings::Strings;
 pub use synths::Synths;
 pub use vocals::Vocals;

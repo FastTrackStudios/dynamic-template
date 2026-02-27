@@ -78,7 +78,16 @@ pub fn default_metadata_field_patterns() -> Group<ItemMetadata> {
         .build();
 
     let arrangement = Group::builder("Arrangement")
-        .patterns(["Down", "Big", "Build"])
+        .patterns([
+            "Down",
+            "Big",
+            "Build",
+            // Guitar/instrument technique arrangements
+            "Harmonics",
+            "Strum",
+            "Fingerpick",
+            "Tremolo",
+        ])
         .build();
 
     let layers = Group::builder("Layers")
@@ -160,7 +169,6 @@ pub fn default_metadata_field_patterns() -> Group<ItemMetadata> {
             "Slap",
             "Slapback",
             // Compression/dynamics
-            "Comp",
             "Compressor",
             "Limiter",
             "Lim",

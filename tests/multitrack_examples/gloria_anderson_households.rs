@@ -57,12 +57,13 @@ fn gloria_anderson_households() -> Result<()> {
     //   └─ Rooms                    ← 10.Room
     // Bass/                         ← Body, Neck
     // Guitars/
+    //   ├─ Electric/                ← NashGtr tracks now grouped as Electric with L/R channels
+    //   │   ├─ L                    ← Households_TimHoek_NashGtrL
+    //   │   └─ R                    ← Households_TimHoek_NashGtrR
     //   ├─ Acoustic/
     //   │   ├─ Acoustic 1           ← 01.Households ACO JC MIXX
     //   │   └─ Acoustic 2           ← 13.AG 1
-    //   ├─ Steel                    ← 15.Steel
-    //   ├─ Tim L                    ← Households_TimHoek_NashGtrL
-    //   └─ Tim R                    ← Households_TimHoek_NashGtrR
+    //   └─ Steel                    ← 15.Steel
     // Keys                          ← 14.Piano
     // Vocals/
     //   ├─ Lead                     ← 16.Vocal
@@ -106,6 +107,12 @@ fn gloria_anderson_households() -> Result<()> {
         .item("12.Bass Neck_01.wav")
         .end()
         .folder("Guitars")
+        .folder("Electric")
+        .track("L")
+        .item("Households_TimHoek_NashGtrL.wav")
+        .track("R")
+        .item("Households_TimHoek_NashGtrR.wav")
+        .end()
         .folder("Acoustic")
         .track("Acoustic 1")
         .item("01.Households ACO JC MIXX_01.wav")
@@ -114,10 +121,6 @@ fn gloria_anderson_households() -> Result<()> {
         .end()
         .track("Steel")
         .item("15.Steel_01.wav")
-        .track("Tim L")
-        .item("Households_TimHoek_NashGtrL.wav")
-        .track("Tim R")
-        .item("Households_TimHoek_NashGtrR.wav")
         .end()
         .track("Keys")
         .item("14.Piano_01.wav")
