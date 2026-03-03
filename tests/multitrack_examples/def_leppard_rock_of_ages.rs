@@ -77,12 +77,19 @@ fn def_leppard_rock_of_ages() -> Result<()> {
         .end();
 
     // --- Percussion ---
-    // Chorus claps (with unusual "Chorus-Clap" naming)
-    let percussion = TrackGroup::folder("Percussion")
-        .track("Clap Chorus Chorus 1")
+    // Cowbell-GangVox now correctly classified as Percussion (cowbell),
+    // plus chorus claps
+    let clap = TrackGroup::folder("Clap")
+        .track("Chorus Chorus 1")
         .item("18_Chorus-Clap1.wav")
-        .track("Clap Chorus Chorus 2")
+        .track("Chorus Chorus 2")
         .item("19_Chorus-Clap2.wav")
+        .end();
+
+    let percussion = TrackGroup::folder("Percussion")
+        .track("Cowbell")
+        .item("20_Cowbell-GangVox.wav")
+        .group(clap)
         .end();
 
     // --- Bass ---
@@ -121,13 +128,10 @@ fn def_leppard_rock_of_ages() -> Result<()> {
     let synths = TrackGroup::single_track("Synths", "12_SynthFM.wav");
 
     // --- Vocals ---
-    // Cowbell-GangVox parsed as vocal (contains "Vox"), plus two lead vocal tracks
     let vocals = TrackGroup::folder("Vocals")
         .track("Lead 1")
-        .item("20_Cowbell-GangVox.wav")
-        .track("Lead 2")
         .item("21_LeadVox.wav")
-        .track("Lead 3")
+        .track("Lead 2")
         .item("22_LeadVox2.wav")
         .end();
 

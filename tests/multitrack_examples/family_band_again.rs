@@ -39,13 +39,13 @@ fn family_band_again() -> Result<()> {
     let drums = TrackGroup::single_track("Drums", "03_Drums.wav");
     let percussion = TrackGroup::single_track("Percussion", "11_AuxPerc.wav");
 
-    // ElecBass classified as Electric, plus clean + distorted guitars
+    // ElecBass now correctly classified as Bass
+    let bass = TrackGroup::single_track("Bass", "01_ElecBass.wav");
+
     let electric = TrackGroup::folder("Electric")
         .track("Electric 1")
-        .item("01_ElecBass.wav")
-        .track("Electric 2")
         .item("05_ElecGtr.wav")
-        .track("Electric 3")
+        .track("Electric 2")
         .item("06_DistortedGtr.wav")
         .end();
 
@@ -63,6 +63,9 @@ fn family_band_again() -> Result<()> {
         .group(steel)
         .end();
 
+    // Melodica now correctly classified as Keys
+    let keys = TrackGroup::single_track("Keys", "10_Melodica.wav");
+
     let vocals = TrackGroup::folder("Vocals")
         .track("Lead")
         .item("09_LeadVox.wav")
@@ -70,15 +73,13 @@ fn family_band_again() -> Result<()> {
         .item("02_BackingVox.wav")
         .end();
 
-    // Melodica → Unsorted
-    let unsorted = TrackGroup::single_track("Unsorted", "10_Melodica.wav");
-
     let expected = TrackStructureBuilder::new()
         .group(drums)
         .group(percussion)
+        .group(bass)
         .group(guitars)
+        .group(keys)
         .group(vocals)
-        .group(unsorted)
         .build();
 
     assert_tracks_equal(&tracks, &expected)?;

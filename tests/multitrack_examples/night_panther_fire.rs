@@ -37,7 +37,6 @@ fn night_panther_fire() -> Result<()> {
     // Expected structure
     // ============================================================================
 
-    // ElecBass classified as Guitar (Electric) — interesting edge case
     let drums = TrackGroup::folder("Drums")
         .track("Drum Kit")
         .item("05_Drums.wav")
@@ -46,7 +45,9 @@ fn night_panther_fire() -> Result<()> {
         .end();
 
     let percussion = TrackGroup::single_track("Percussion", "08_AuxPerc.wav");
-    let guitars = TrackGroup::single_track("Guitars", "01_ElecBass.wav");
+
+    // ElecBass now correctly classified as Bass
+    let bass = TrackGroup::single_track("Bass", "01_ElecBass.wav");
 
     let synths = TrackGroup::folder("Synths")
         .track("Synth1")
@@ -80,7 +81,7 @@ fn night_panther_fire() -> Result<()> {
     let expected = TrackStructureBuilder::new()
         .group(drums)
         .group(percussion)
-        .group(guitars)
+        .group(bass)
         .group(synths)
         .group(vocals)
         .group(orchestra)

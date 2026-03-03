@@ -56,11 +56,14 @@ fn queen_bohemian_rhapsody() -> Result<()> {
         .item("03_HiHat.wav")
         .end();
 
+    // Toms now correctly classified in Drums
     let drums = TrackGroup::folder("Drums")
         .track("Kick")
         .item("01_Kick.wav")
         .track("Snare")
         .item("02_Snare.wav")
+        .track("Toms")
+        .item("04_Toms.wav")
         .group(cymbals)
         .end();
 
@@ -133,9 +136,6 @@ fn queen_bohemian_rhapsody() -> Result<()> {
         .item("13_Timpani.wav")
         .end();
 
-    // Toms → Unsorted
-    let unsorted = TrackGroup::single_track("Unsorted", "04_Toms.wav");
-
     let expected = TrackStructureBuilder::new()
         .group(drums)
         .group(percussion)
@@ -144,7 +144,6 @@ fn queen_bohemian_rhapsody() -> Result<()> {
         .group(keys)
         .group(vocals)
         .group(orchestra)
-        .group(unsorted)
         .build();
 
     assert_tracks_equal(&tracks, &expected)?;

@@ -43,8 +43,13 @@ fn grieg_mountain_king() -> Result<()> {
     // Expected structure
     // ============================================================================
 
-    // Cymbal classified as Drums
-    let drums = TrackGroup::single_track("Drums", "15_Cymbal.wav");
+    // Cymbal and Toms now both classified as Drums
+    let drums = TrackGroup::folder("Drums")
+        .track("Toms")
+        .item("16_Toms.wav")
+        .track("Cymbals")
+        .item("15_Cymbal.wav")
+        .end();
     let percussion = TrackGroup::single_track("Percussion", "17_Timpani.wav");
     let horns = TrackGroup::single_track("Horns", "11_FrenchHornSection.wav");
 
@@ -98,15 +103,11 @@ fn grieg_mountain_king() -> Result<()> {
         .item("17_Timpani.wav")
         .end();
 
-    // Toms → Unsorted
-    let unsorted = TrackGroup::single_track("Unsorted", "16_Toms.wav");
-
     let expected = TrackStructureBuilder::new()
         .group(drums)
         .group(percussion)
         .group(horns)
         .group(orchestra)
-        .group(unsorted)
         .build();
 
     assert_tracks_equal(&tracks, &expected)?;

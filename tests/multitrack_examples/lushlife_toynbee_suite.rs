@@ -67,18 +67,23 @@ fn lushlife_toynbee_suite() -> Result<()> {
         .group(ekit)
         .end();
 
-    // Glockenspiel dual-classified as percussion and orchestral
-    let percussion = TrackGroup::single_track("Percussion", "09_Glockenspiel.wav");
+    // Glockenspiel dual-classified as percussion, plus claps now classified
+    let percussion = TrackGroup::folder("Percussion")
+        .track("Clap")
+        .item("03_Claps.wav")
+        .track("Orch")
+        .item("09_Glockenspiel.wav")
+        .end();
 
-    // ElecBass classified as Electric guitar
+    // ElecBass now correctly classified as Bass
+    let bass = TrackGroup::single_track("Bass", "08_ElecBass.wav");
+
     let guitars = TrackGroup::folder("Guitars")
         .track("Electric 1")
-        .item("08_ElecBass.wav")
-        .track("Electric 2")
         .item("10_ElecGtr1.wav")
-        .track("Electric 3")
+        .track("Electric 2")
         .item("11_ElecGtr2.wav")
-        .track("Electric 4")
+        .track("Electric 3")
         .item("12_ElecGtr3.wav")
         .end();
 
@@ -125,17 +130,12 @@ fn lushlife_toynbee_suite() -> Result<()> {
         .item("09_Glockenspiel.wav")
         .end();
 
+    // Scratches now classified as SFX
     let sfx = TrackGroup::folder("SFX")
         .track("FX1")
         .item("15_FX1.wav")
         .track("FX2")
         .item("20_FX2.wav")
-        .end();
-
-    // Claps and Scratches → Unsorted
-    let unsorted = TrackGroup::folder("Unsorted")
-        .track("Claps")
-        .item("03_Claps.wav")
         .track("Scratches")
         .item("25_Scratches.wav")
         .end();
@@ -143,6 +143,7 @@ fn lushlife_toynbee_suite() -> Result<()> {
     let expected = TrackStructureBuilder::new()
         .group(drums)
         .group(percussion)
+        .group(bass)
         .group(guitars)
         .group(keys)
         .group(synths)
@@ -150,7 +151,6 @@ fn lushlife_toynbee_suite() -> Result<()> {
         .group(vocals)
         .group(orchestra)
         .group(sfx)
-        .group(unsorted)
         .build();
 
     assert_tracks_equal(&tracks, &expected)?;

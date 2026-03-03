@@ -52,9 +52,10 @@ fn hezekiah_jones_borrowed_heart() -> Result<()> {
         .item("08_AuxPerc.wav")
         .end();
 
+    // ElecBass now correctly classified as Bass
+    let bass = TrackGroup::single_track("Bass", "04_ElecBass.wav");
+
     let guitars = TrackGroup::folder("Guitars")
-        .track("Electric")
-        .item("04_ElecBass.wav")
         .track("Acoustic")
         .item("01_AcousticGtr.wav")
         .track("Steel")
@@ -86,6 +87,7 @@ fn hezekiah_jones_borrowed_heart() -> Result<()> {
     let expected = TrackStructureBuilder::new()
         .group(drums)
         .group(percussion)
+        .group(bass)
         .group(guitars)
         .group(vocals)
         .group(orchestra)

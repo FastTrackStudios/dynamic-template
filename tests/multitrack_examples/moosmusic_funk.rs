@@ -117,7 +117,7 @@ fn moosmusic_funk() -> Result<()> {
         .end();
 
     // --- Percussion ---
-    // Full percussion section: shaker, tambourine, cowbell, woodblock
+    // Full percussion section: shaker, tambourine, cowbell, woodblock, claps
     let percussion = TrackGroup::folder("Percussion")
         .track("Shaker")
         .item("16_Shaker.wav")
@@ -127,6 +127,8 @@ fn moosmusic_funk() -> Result<()> {
         .item("15_Cowbell.wav")
         .track("Woodblock")
         .item("14_Woodblock.wav")
+        .track("Clap")
+        .item("18_Claps.wav")
         .end();
 
     // --- Bass ---
@@ -174,10 +176,6 @@ fn moosmusic_funk() -> Result<()> {
         .group(bgvs)
         .end();
 
-    // --- Unsorted ---
-    // Claps not classified
-    let unsorted = TrackGroup::single_track("Unsorted", "18_Claps.wav");
-
     // ============================================================================
     // Compose final structure
     // ============================================================================
@@ -189,7 +187,6 @@ fn moosmusic_funk() -> Result<()> {
         .group(guitars)
         .group(keys)
         .group(vocals)
-        .group(unsorted)
         .build();
 
     assert_tracks_equal(&tracks, &expected)?;

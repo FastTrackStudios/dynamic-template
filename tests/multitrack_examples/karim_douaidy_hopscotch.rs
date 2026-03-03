@@ -34,23 +34,29 @@ fn karim_douaidy_hopscotch() -> Result<()> {
     // Expected structure
     // ============================================================================
 
-    let percussion = TrackGroup::single_track("Percussion", "06_AuxPerc.wav");
+    // Claps, Darbuka, Doumbek now correctly classified as Percussion
+    let darbuka = TrackGroup::folder("Darbuka")
+        .track("Darbuka 1")
+        .item("02_Darbuka.wav")
+        .track("Darbuka 2")
+        .item("03_Doumbek.wav")
+        .end();
+
+    let percussion = TrackGroup::folder("Percussion")
+        .track("Clap")
+        .item("05_Claps.wav")
+        .group(darbuka)
+        .track("Aux")
+        .item("06_AuxPerc.wav")
+        .end();
+
     let bass = TrackGroup::single_track("Bass", "08_Bass.wav");
     let guitars = TrackGroup::single_track("Guitars", "04_AcousticGtr.wav");
     let keys = TrackGroup::single_track("Keys", "07_Piano.wav");
     let vocals = TrackGroup::single_track("Vocals", "09_LeadVox.wav");
 
-    // Oud, darbuka, doumbek, claps → Unsorted (non-Western instruments)
-    let unsorted = TrackGroup::folder("Unsorted")
-        .track("Oud")
-        .item("01_Oud.wav")
-        .track("Darbuka")
-        .item("02_Darbuka.wav")
-        .track("Doumbek")
-        .item("03_Doumbek.wav")
-        .track("Claps")
-        .item("05_Claps.wav")
-        .end();
+    // Only Oud remains unsorted
+    let unsorted = TrackGroup::single_track("Unsorted", "01_Oud.wav");
 
     let expected = TrackStructureBuilder::new()
         .group(percussion)

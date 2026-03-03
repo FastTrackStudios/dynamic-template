@@ -46,18 +46,25 @@ fn snowmine_curfews() -> Result<()> {
         .item("04_Vibraphone.wav")
         .end();
 
-    // ElecBass classified as Electric guitar
+    // ElecBass now correctly classified as Bass
+    let bass = TrackGroup::single_track("Bass", "02_ElecBass.wav");
+
     let guitars = TrackGroup::folder("Guitars")
         .track("Electric 1")
-        .item("02_ElecBass.wav")
-        .track("Electric 2")
         .item("07_ElecGtr1.wav")
-        .track("Electric 3")
+        .track("Electric 2")
         .item("08_ElecGtr2.wav")
         .end();
 
     let keys = TrackGroup::single_track("Keys", "11_TackPiano.wav");
-    let synths = TrackGroup::single_track("Synths", "09_Synth.wav");
+
+    // Sampler now classified as Synths, along with Synth
+    let synths = TrackGroup::folder("Synths")
+        .track("Sampler")
+        .item("06_Sampler.wav")
+        .track("Synth")
+        .item("09_Synth.wav")
+        .end();
 
     let vocals = TrackGroup::folder("Vocals")
         .track("Lead")
@@ -67,17 +74,16 @@ fn snowmine_curfews() -> Result<()> {
         .end();
 
     let orchestra = TrackGroup::single_track("Orchestra", "04_Vibraphone.wav");
-    let unsorted = TrackGroup::single_track("Unsorted", "06_Sampler.wav");
 
     let expected = TrackStructureBuilder::new()
         .group(drums)
         .group(percussion)
+        .group(bass)
         .group(guitars)
         .group(keys)
         .group(synths)
         .group(vocals)
         .group(orchestra)
-        .group(unsorted)
         .build();
 
     assert_tracks_equal(&tracks, &expected)?;

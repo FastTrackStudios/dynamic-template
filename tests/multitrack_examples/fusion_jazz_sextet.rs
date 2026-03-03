@@ -32,13 +32,11 @@ fn fusion_jazz_sextet() -> Result<()> {
 
     let drums = TrackGroup::single_track("Drums", "01_Drums.wav");
 
-    // ElecBass and ElecPiano both classified as Electric guitars — naming ambiguity
-    let guitars = TrackGroup::folder("Guitars")
-        .track("Electric 1")
-        .item("02_ElecBass.wav")
-        .track("Electric 2")
-        .item("03_ElecPiano.wav")
-        .end();
+    // ElecBass now correctly classified as Bass
+    let bass = TrackGroup::single_track("Bass", "02_ElecBass.wav");
+
+    // ElecPiano now correctly classified as Keys
+    let keys = TrackGroup::single_track("Keys", "03_ElecPiano.wav");
 
     let synths = TrackGroup::single_track("Synths", "04_Synthesizer.wav");
     let horns = TrackGroup::single_track("Horns", "05_SopranoSax.wav");
@@ -46,7 +44,8 @@ fn fusion_jazz_sextet() -> Result<()> {
 
     let expected = TrackStructureBuilder::new()
         .group(drums)
-        .group(guitars)
+        .group(bass)
+        .group(keys)
         .group(synths)
         .group(horns)
         .group(orchestra)

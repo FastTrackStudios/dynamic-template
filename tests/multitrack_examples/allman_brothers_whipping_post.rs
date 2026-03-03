@@ -44,7 +44,14 @@ fn allman_brothers_whipping_post() -> Result<()> {
         .item("02_Drums2.wav")
         .end();
 
-    let percussion = TrackGroup::single_track("Percussion", "12_Tambourine.wav");
+    // Congas now correctly classified as Percussion alongside Tambourine
+    let percussion = TrackGroup::folder("Percussion")
+        .track("Tambourine")
+        .item("12_Tambourine.wav")
+        .track("Conga")
+        .item("07_Congas.wav")
+        .end();
+
     let bass = TrackGroup::single_track("Bass", "03_Bass.wav");
 
     let guitars = TrackGroup::folder("Guitars")
@@ -71,9 +78,6 @@ fn allman_brothers_whipping_post() -> Result<()> {
         .group(bgvs)
         .end();
 
-    // Congas → Unsorted
-    let unsorted = TrackGroup::single_track("Unsorted", "07_Congas.wav");
-
     let expected = TrackStructureBuilder::new()
         .group(drums)
         .group(percussion)
@@ -81,7 +85,6 @@ fn allman_brothers_whipping_post() -> Result<()> {
         .group(guitars)
         .group(keys)
         .group(vocals)
-        .group(unsorted)
         .build();
 
     assert_tracks_equal(&tracks, &expected)?;

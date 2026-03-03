@@ -32,26 +32,27 @@ fn gospel_session() -> Result<()> {
 
     let drums = TrackGroup::single_track("Drums", "01_Drums.wav");
 
-    // ElecBass classified as Electric guitar
+    // Claps now correctly classified as Percussion
+    let percussion = TrackGroup::single_track("Percussion", "05_Claps.wav");
+
+    // ElecBass now correctly classified as Bass
+    let bass = TrackGroup::single_track("Bass", "02_ElecBass.wav");
+
     let guitars = TrackGroup::folder("Guitars")
         .track("Electric 1")
-        .item("02_ElecBass.wav")
-        .track("Electric 2")
         .item("03_ElecGtr1.wav")
-        .track("Electric 3")
+        .track("Electric 2")
         .item("04_ElecGtr2.wav")
         .end();
 
     let vocals = TrackGroup::single_track("Vocals", "06_LeadVox.wav");
 
-    // Claps → Unsorted
-    let unsorted = TrackGroup::single_track("Unsorted", "05_Claps.wav");
-
     let expected = TrackStructureBuilder::new()
         .group(drums)
+        .group(percussion)
+        .group(bass)
         .group(guitars)
         .group(vocals)
-        .group(unsorted)
         .build();
 
     assert_tracks_equal(&tracks, &expected)?;

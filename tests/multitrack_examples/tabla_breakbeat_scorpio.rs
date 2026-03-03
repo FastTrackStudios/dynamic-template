@@ -32,6 +32,8 @@ fn tabla_breakbeat_scorpio() -> Result<()> {
     // ============================================================================
 
     let drums = TrackGroup::single_track("Drums", "01_DrumMachine.wav");
+    let percussion = TrackGroup::single_track("Percussion", "02_Tabla.wav");
+    let keys = TrackGroup::single_track("Keys", "04_Accordion.wav");
     let synths = TrackGroup::single_track("Synths", "03_Synthesizer.wav");
 
     let sfx = TrackGroup::folder("SFX")
@@ -43,19 +45,12 @@ fn tabla_breakbeat_scorpio() -> Result<()> {
         .item("07_FX3.wav")
         .end();
 
-    // Tabla and accordion not recognized → Unsorted
-    let unsorted = TrackGroup::folder("Unsorted")
-        .track("Tabla")
-        .item("02_Tabla.wav")
-        .track("Accordion")
-        .item("04_Accordion.wav")
-        .end();
-
     let expected = TrackStructureBuilder::new()
         .group(drums)
+        .group(percussion)
+        .group(keys)
         .group(synths)
         .group(sfx)
-        .group(unsorted)
         .build();
 
     assert_tracks_equal(&tracks, &expected)?;

@@ -79,17 +79,19 @@ fn enda_reilly_cur_an_long() -> Result<()> {
         .item("10_Fiddle2.wav")
         .end();
 
+    // --- Keys ---
+    // Accordion now correctly classified as Keys
+    let keys = TrackGroup::single_track("Keys", "11_Accordion.wav");
+
+    // --- Fiddle ---
+    // (already defined above)
+
     // --- Vocals ---
     let vocals = TrackGroup::single_track("Vocals", "12_LeadVox.wav");
 
     // --- Unsorted ---
-    // Brushes and accordion not classified into standard groups
-    let unsorted = TrackGroup::folder("Unsorted")
-        .track("Brushes")
-        .item("03_Brushes.wav")
-        .track("Accordion")
-        .item("11_Accordion.wav")
-        .end();
+    // Only brushes remain unsorted
+    let unsorted = TrackGroup::single_track("Unsorted", "03_Brushes.wav");
 
     // ============================================================================
     // Compose final structure
@@ -99,6 +101,7 @@ fn enda_reilly_cur_an_long() -> Result<()> {
         .group(drums)
         .group(bass)
         .group(guitars)
+        .group(keys)
         .group(fiddle)
         .group(vocals)
         .group(unsorted)

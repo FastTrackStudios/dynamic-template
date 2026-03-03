@@ -36,11 +36,14 @@ fn queen_bicycle_race() -> Result<()> {
     // Expected structure
     // ============================================================================
 
+    // Toms now correctly classified in Drums
     let drums = TrackGroup::folder("Drums")
         .track("Kick")
         .item("01_Kick.wav")
         .track("Snare")
         .item("02_Snare.wav")
+        .track("Toms")
+        .item("03_Toms.wav")
         .track("OH")
         .item("04_Overheads.wav")
         .end();
@@ -58,7 +61,7 @@ fn queen_bicycle_race() -> Result<()> {
 
     let keys = TrackGroup::single_track("Keys", "09_Piano.wav");
 
-    // Bells classified as synths
+    // Bells classified as synths (confirmed correct)
     let synths = TrackGroup::single_track("Synths", "10_Bells.wav");
 
     let vocals = TrackGroup::folder("Vocals")
@@ -68,9 +71,6 @@ fn queen_bicycle_race() -> Result<()> {
         .item("12_BackingVox.wav")
         .end();
 
-    // Toms as single item → Unsorted (not inside a drum kit context)
-    let unsorted = TrackGroup::single_track("Unsorted", "03_Toms.wav");
-
     let expected = TrackStructureBuilder::new()
         .group(drums)
         .group(bass)
@@ -78,7 +78,6 @@ fn queen_bicycle_race() -> Result<()> {
         .group(keys)
         .group(synths)
         .group(vocals)
-        .group(unsorted)
         .build();
 
     assert_tracks_equal(&tracks, &expected)?;

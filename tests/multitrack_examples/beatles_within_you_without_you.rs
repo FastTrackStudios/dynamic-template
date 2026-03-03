@@ -32,6 +32,9 @@ fn beatles_within_you_without_you() -> Result<()> {
     // Expected structure
     // ============================================================================
 
+    // Tabla now correctly classified as Percussion
+    let percussion = TrackGroup::single_track("Percussion", "03_Tabla.wav");
+
     let vocals = TrackGroup::single_track("Vocals", "07_LeadVox.wav");
 
     let orchestra = TrackGroup::folder("Orchestra")
@@ -41,19 +44,18 @@ fn beatles_within_you_without_you() -> Result<()> {
         .item("05_Strings.wav")
         .end();
 
-    // Sitar, dilruba, tabla, tambura are non-Western instruments → Unsorted
+    // Sitar, dilruba, tambura are non-Western instruments → Unsorted
     let unsorted = TrackGroup::folder("Unsorted")
         .track("Sitar")
         .item("01_Sitar.wav")
         .track("Dilruba")
         .item("02_Dilruba.wav")
-        .track("Tabla")
-        .item("03_Tabla.wav")
         .track("Tambura")
         .item("04_Tambura.wav")
         .end();
 
     let expected = TrackStructureBuilder::new()
+        .group(percussion)
         .group(vocals)
         .group(orchestra)
         .group(unsorted)
