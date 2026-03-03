@@ -22,7 +22,8 @@ impl From<Vocals> for ItemMetadataGroup {
                 "vocal", "vocals", "vox", "voc", "voca", "voice", "lv", "bv", "bg",
             ])
             // Exclude non-vocal voice effects (these should go to SFX)
-            .exclude(["robot", "vocoder", "talkbox"])
+            // Also exclude "cowbell" to prevent compound names like "CowbellGangVox" from matching
+            .exclude(["robot", "vocoder", "talkbox", "cowbell"])
             .group(LeadVocals)
             .group(BackgroundVocals)
             .build()

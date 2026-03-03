@@ -56,6 +56,11 @@ impl From<SFX> for Group<ItemMetadata> {
                 "atmosphere",
                 "room tone",
                 "noise",
+                // DJ / turntablism
+                "scratch",
+                "scratches",
+                "dj",
+                "turntable",
                 // Misc audio markers
                 "slate",
                 "beep",

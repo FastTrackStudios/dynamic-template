@@ -41,6 +41,9 @@ impl From<BassGuitar> for ItemMetadataGroup {
                 "bass guitar",
                 "electric_bass",
                 "electric bass",
+                "elec_bass",
+                "elecbass",
+                "elec bass",
                 // Common bass guitar models (also used for matching)
                 "hofner",
                 "precision",

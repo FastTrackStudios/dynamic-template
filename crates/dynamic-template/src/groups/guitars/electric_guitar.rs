@@ -101,6 +101,14 @@ impl From<ElectricGuitar> for ItemMetadataGroup {
                 "explorer",
                 "flying v",
             ])
+            // Prevent matching bass or piano items that start with "Elec"
+            .exclude([
+                "bass",
+                "piano",
+                "pno",
+                "keys",
+                "keyboard",
+            ])
             .performer(ItemMetadataGroup::builder("Performer").build()) // Priority 1: Performer (uses global patterns)
             .field_value_descriptors(ItemMetadataField::Variant, variant_descriptors) // Priority 2: Variant/model
             .arrangement(guitar_arrangement) // Priority 3: Arrangement

@@ -10,7 +10,7 @@ impl From<Percussion> for Group<ItemMetadata> {
     fn from(_val: Percussion) -> Self {
         Group::builder("Percussion")
             .prefix("Perc")
-            .patterns(vec!["percussion", "perc"])
+            .patterns(vec!["percussion", "perc", "aux perc", "auxperc", "aux_perc"])
             // Exclude drum kit items
             .exclude(vec!["drum", "kick", "snare", "hihat", "cymbal", "tom"])
             // Add subgroups for specific percussion instruments
@@ -35,6 +35,8 @@ impl From<Percussion> for Group<ItemMetadata> {
             .group(Castanets)
             .group(Sidestick)
             .group(Rimshot)
+            .group(Tabla)
+            .group(Darbuka)
             .build()
     }
 }
@@ -127,7 +129,9 @@ impl From<Vibraslap> for Group<ItemMetadata> {
 pub struct Conga;
 impl From<Conga> for Group<ItemMetadata> {
     fn from(_val: Conga) -> Self {
-        Group::builder("Conga").patterns(vec!["conga"]).build()
+        Group::builder("Conga")
+            .patterns(vec!["conga", "congas"])
+            .build()
     }
 }
 
@@ -158,7 +162,7 @@ pub struct Clap;
 impl From<Clap> for Group<ItemMetadata> {
     fn from(_val: Clap) -> Self {
         Group::builder("Clap")
-            .patterns(vec!["clap", "handclap"])
+            .patterns(vec!["clap", "claps", "handclap", "handclaps"])
             .build()
     }
 }
@@ -225,6 +229,24 @@ impl From<Castanets> for Group<ItemMetadata> {
     fn from(_val: Castanets) -> Self {
         Group::builder("Castanets")
             .patterns(vec!["castanets", "castanet"])
+            .build()
+    }
+}
+
+pub struct Tabla;
+impl From<Tabla> for Group<ItemMetadata> {
+    fn from(_val: Tabla) -> Self {
+        Group::builder("Tabla")
+            .patterns(vec!["tabla"])
+            .build()
+    }
+}
+
+pub struct Darbuka;
+impl From<Darbuka> for Group<ItemMetadata> {
+    fn from(_val: Darbuka) -> Self {
+        Group::builder("Darbuka")
+            .patterns(vec!["darbuka", "doumbek", "dumbek", "darabuka"])
             .build()
     }
 }

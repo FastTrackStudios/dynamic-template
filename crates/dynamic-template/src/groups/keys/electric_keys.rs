@@ -12,6 +12,9 @@ impl From<ElectricKeys> for Group<ItemMetadata> {
             .patterns(vec![
                 "electric_piano",
                 "electric piano",
+                "elec_piano",
+                "elecpiano",
+                "elec piano",
                 "ep",
                 "e_piano",
                 "e piano",

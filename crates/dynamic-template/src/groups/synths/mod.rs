@@ -33,7 +33,7 @@ impl From<Synths> for Group<ItemMetadata> {
     fn from(_val: Synths) -> Self {
         Group::builder("Synths")
             .prefix("SY")
-            .patterns(vec!["synth", "synthesizer", "bells"])
+            .patterns(vec!["synth", "synthesizer", "bells", "sampler"])
             .group(Prophet)
             .group(Lead)
             .group(Pad)
