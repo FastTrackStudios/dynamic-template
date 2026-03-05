@@ -58,13 +58,15 @@ fn ben_carrigan_hey_carrie_anne() -> Result<()> {
         .end();
 
     // --- Percussion ---
-    // Shaker, tambourine, and glockenspiel (classified as orchestral percussion)
+    // Shaker, tambourine, timpani, and glockenspiel (classified as orchestral percussion)
     let percussion = TrackGroup::folder("Percussion")
         .track("Shaker")
         .item("02_Shaker.wav")
         .track("Tambourine")
         .item("03_Tambo.wav")
-        .track("Orch")
+        .track("Orch 1")
+        .item("04_Timp.wav")
+        .track("Orch 2")
         .item("07_Glockenspiel.wav")
         .end();
 
@@ -140,15 +142,17 @@ fn ben_carrigan_hey_carrie_anne() -> Result<()> {
         .item("12_StringsMix.wav")
         .end();
 
-    let orchestra = TrackGroup::folder("Orchestra")
-        .group(strings)
-        .track("Percussion")
+    let orch_perc = TrackGroup::folder("Percussion")
+        .track("Percussion 1")
+        .item("04_Timp.wav")
+        .track("Percussion 2")
         .item("07_Glockenspiel.wav")
         .end();
 
-    // --- Unsorted ---
-    // Timpani not classified into standard groups
-    let unsorted = TrackGroup::single_track("Unsorted", "04_Timp.wav");
+    let orchestra = TrackGroup::folder("Orchestra")
+        .group(strings)
+        .group(orch_perc)
+        .end();
 
     // ============================================================================
     // Compose final structure
@@ -162,7 +166,6 @@ fn ben_carrigan_hey_carrie_anne() -> Result<()> {
         .group(harmonica)
         .group(vocals)
         .group(orchestra)
-        .group(unsorted)
         .build();
 
     assert_tracks_equal(&tracks, &expected)?;

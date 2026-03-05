@@ -12,6 +12,7 @@ impl From<Percussion> for Group<ItemMetadata> {
             .patterns(vec![
                 "timpani",
                 "timps",
+                "timp",
                 "snare",
                 "snare_drum",
                 "bass_drum",

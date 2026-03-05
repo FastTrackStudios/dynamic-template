@@ -47,12 +47,14 @@ fn def_leppard_pour_some_sugar() -> Result<()> {
     // ============================================================================
 
     // --- Drums ---
-    // Two drum bus prints (Drums1 and Drum2 — note inconsistent naming)
+    // Two drum bus prints plus snare loop (classified via "snareloop" pattern)
     let drums = TrackGroup::folder("Drums")
         .track("Drum Kit 1")
         .item("01_Drums1.wav")
         .track("Drum Kit 2")
         .item("02_Drum2.wav")
+        .track("Snare")
+        .item("03_snareloop.wav")
         .end();
 
     // --- Bass ---
@@ -109,10 +111,6 @@ fn def_leppard_pour_some_sugar() -> Result<()> {
         .item("21_Vox_2.wav")
         .end();
 
-    // --- Unsorted ---
-    // Snare loop not classified (ambiguous: could be drums or sample)
-    let unsorted = TrackGroup::single_track("Unsorted", "03_snareloop.wav");
-
     // ============================================================================
     // Compose final structure
     // ============================================================================
@@ -122,7 +120,6 @@ fn def_leppard_pour_some_sugar() -> Result<()> {
         .group(bass)
         .group(guitars)
         .group(vocals)
-        .group(unsorted)
         .build();
 
     assert_tracks_equal(&tracks, &expected)?;

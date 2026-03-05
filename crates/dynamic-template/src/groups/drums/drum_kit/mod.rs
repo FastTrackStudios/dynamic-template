@@ -21,7 +21,7 @@ pub struct DrumKit;
 impl From<DrumKit> for Group<ItemMetadata> {
     fn from(_val: DrumKit) -> Self {
         Group::builder("Drum Kit")
-            .patterns(vec!["d_", "drum", "kit", "drums"])
+            .patterns(vec!["d_", "drum", "kit", "drums", "brush", "brushes"])
             .exclude(vec![
                 "electronic",
                 "elec",

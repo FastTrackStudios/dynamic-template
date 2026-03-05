@@ -38,12 +38,14 @@ fn enda_reilly_cur_an_long() -> Result<()> {
     // ============================================================================
 
     // --- Drums ---
-    // Dual-mic drum setup (no individual close mics, just two room/overhead positions)
+    // Dual-mic drum setup plus brushes (classified as Drum Kit via "brush"/"brushes" pattern)
     let drums = TrackGroup::folder("Drums")
         .track("Drum Kit 1")
         .item("01_DrumMic1.wav")
         .track("Drum Kit 2")
         .item("02_DrumMic2.wav")
+        .track("Drum Kit 3")
+        .item("03_Brushes.wav")
         .end();
 
     // --- Bass ---
@@ -89,10 +91,6 @@ fn enda_reilly_cur_an_long() -> Result<()> {
     // --- Vocals ---
     let vocals = TrackGroup::single_track("Vocals", "12_LeadVox.wav");
 
-    // --- Unsorted ---
-    // Only brushes remain unsorted
-    let unsorted = TrackGroup::single_track("Unsorted", "03_Brushes.wav");
-
     // ============================================================================
     // Compose final structure
     // ============================================================================
@@ -104,7 +102,6 @@ fn enda_reilly_cur_an_long() -> Result<()> {
         .group(keys)
         .group(fiddle)
         .group(vocals)
-        .group(unsorted)
         .build();
 
     assert_tracks_equal(&tracks, &expected)?;
