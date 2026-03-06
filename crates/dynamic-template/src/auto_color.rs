@@ -25,7 +25,7 @@ use std::collections::HashMap;
 /// any known group (or whose group has no color) are omitted from the map.
 pub fn classify_and_color(track_names: Vec<String>) -> HashMap<String, Color> {
     let config = crate::default_config();
-    let structure = match monarchy::monarchy_sort(track_names, config) {
+    let structure = match monarchy::monarchy_sort(track_names, &config) {
         Ok(s) => s,
         Err(_) => return HashMap::new(),
     };

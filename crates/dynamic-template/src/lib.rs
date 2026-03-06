@@ -158,7 +158,7 @@ where
             song_name::detect_song_names_with_config(&input_strings, &song_name_config);
 
         // Perform monarchy sort (clone config since monarchy_sort takes ownership)
-        let mut structure = monarchy_sort(input_strings, config.clone())?;
+        let mut structure = monarchy_sort(input_strings, &config)?;
 
         // Extract tempo from item names and store in metadata
         extract_tempo_from_structure(&mut structure);
