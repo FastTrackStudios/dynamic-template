@@ -19,7 +19,7 @@ fn performer_items_go_to_unsorted() -> Result<()> {
     let config = default_config();
 
     // -- Exec
-    let structure = monarchy_sort(items, config)?;
+    let structure = monarchy_sort(items, &config)?;
 
     // -- Check
     println!("\nStructure after initial sort:");
@@ -64,7 +64,7 @@ fn full_scoped_resort_workflow() -> Result<()> {
     let config = default_config();
 
     // -- Exec (Step 1: Initial sort)
-    let mut structure = monarchy_sort(items, config.clone())?;
+    let mut structure = monarchy_sort(items, &config)?;
 
     println!("\n=== STEP 1: Initial sort ===");
     println!("{structure}");
@@ -133,7 +133,7 @@ fn scoped_resort_with_remaining_unsorted() -> Result<()> {
     let config = default_config();
 
     // -- Exec
-    let mut structure = monarchy_sort(items, config.clone())?;
+    let mut structure = monarchy_sort(items, &config)?;
 
     println!("\n=== Initial sort ===");
     println!("{structure}");
@@ -195,7 +195,7 @@ fn guitars_with_performer_creates_nested_hierarchy() -> Result<()> {
     let config = default_config();
 
     // -- Exec
-    let structure = monarchy_sort(items, config)?;
+    let structure = monarchy_sort(items, &config)?;
 
     // -- Check
     println!("\nStructure with performer grouping:");
@@ -241,7 +241,7 @@ fn single_guitar_stays_flat() -> Result<()> {
     let config = default_config();
 
     // -- Exec
-    let structure = monarchy_sort(items, config)?;
+    let structure = monarchy_sort(items, &config)?;
 
     // -- Check
     println!("\nSingle guitar structure:");
@@ -290,7 +290,7 @@ fn two_arrangements_create_folders() -> Result<()> {
     let config = default_config();
 
     // -- Exec
-    let structure = monarchy_sort(items, config)?;
+    let structure = monarchy_sort(items, &config)?;
 
     // -- Check
     println!("\nTwo arrangements structure:");
@@ -334,14 +334,14 @@ fn merge_new_items_into_existing() -> Result<()> {
     let config = default_config();
 
     // -- Exec (initial sort)
-    let mut structure = monarchy_sort(initial_items, config.clone())?;
+    let mut structure = monarchy_sort(initial_items, &config)?;
 
     println!("\n=== Initial structure ===");
     println!("{structure}");
 
     // Add more items via merge
     let new_items = vec!["Guitar Drive", "John Guitar Crunch"];
-    let new_structure = monarchy_sort(new_items, config.clone())?;
+    let new_structure = monarchy_sort(new_items, &config)?;
 
     println!("\n=== New items structure ===");
     println!("{new_structure}");

@@ -7,19 +7,6 @@ use daw_proto::{ProjectContext, TrackService};
 use daw_standalone::StandaloneTrack;
 use dynamic_template::auto_color;
 use dynamic_template::colors;
-use roam::session::{Context, Extensions};
-
-fn test_ctx() -> Context {
-    Context {
-        conn_id: roam_wire::ConnectionId(0),
-        request_id: roam_wire::RequestId(0),
-        method_id: roam_wire::MethodId(0),
-        metadata: vec![],
-        channels: vec![],
-        extensions: Extensions::new(),
-        arg_names: &[],
-    }
-}
 
 fn current() -> ProjectContext {
     ProjectContext::Current
@@ -123,10 +110,9 @@ fn classify_empty_list_returns_empty() {
 #[tokio::test]
 async fn apply_colors_sets_track_colors() {
     let svc = setup_marc_martel().await;
-    let cx = test_ctx();
 
     // All tracks should start with no color
-    let tracks = svc.get_tracks(&cx, current()).await;
+    let tracks = svc.get_tracks(current()).await;
     for track in &tracks {
         // Skip the default tracks (Track 1, Track 2, Vocals, Drums)
         if track.name.starts_with("Track ") {
@@ -140,11 +126,11 @@ async fn apply_colors_sets_track_colors() {
     }
 
     // Apply auto-color
-    let colored = auto_color::apply_colors(&svc, &cx, current()).await;
+    let colored = auto_color::apply_colors(&svc, current()).await;
     assert!(colored > 0, "Should have colored at least some tracks");
 
     // Verify colors were actually set
-    let tracks = svc.get_tracks(&cx, current()).await;
+    let tracks = svc.get_tracks(current()).await;
     let mut colored_count = 0;
     for track in &tracks {
         if track.color.is_some() {
@@ -161,11 +147,10 @@ async fn apply_colors_sets_track_colors() {
 #[tokio::test]
 async fn drums_get_red_family_colors() {
     let svc = setup_marc_martel().await;
-    let cx = test_ctx();
 
-    auto_color::apply_colors(&svc, &cx, current()).await;
+    auto_color::apply_colors(&svc, current()).await;
 
-    let tracks = svc.get_tracks(&cx, current()).await;
+    let tracks = svc.get_tracks(current()).await;
 
     // Check drum tracks have colors in the red family
     // Red family: hue around 0°/360°, amber/orange around 30-45°
@@ -191,11 +176,10 @@ async fn drums_get_red_family_colors() {
 #[tokio::test]
 async fn guitars_get_sky_family_colors() {
     let svc = setup_marc_martel().await;
-    let cx = test_ctx();
 
-    auto_color::apply_colors(&svc, &cx, current()).await;
+    auto_color::apply_colors(&svc, current()).await;
 
-    let tracks = svc.get_tracks(&cx, current()).await;
+    let tracks = svc.get_tracks(current()).await;
     let guitar_names = [
         "Lead Guitar Amplitube Left",
         "Lead Guitar Amplitube Right",
@@ -228,22 +212,21 @@ async fn guitars_get_sky_family_colors() {
 #[tokio::test]
 async fn clear_colors_resets_all() {
     let svc = setup_marc_martel().await;
-    let cx = test_ctx();
 
     // Apply colors first
-    auto_color::apply_colors(&svc, &cx, current()).await;
+    auto_color::apply_colors(&svc, current()).await;
 
     // Verify some tracks have colors
-    let tracks = svc.get_tracks(&cx, current()).await;
+    let tracks = svc.get_tracks(current()).await;
     let has_colors = tracks.iter().any(|t| t.color.is_some());
     assert!(has_colors, "Should have colored tracks before clearing");
 
     // Clear all colors
-    let cleared = auto_color::clear_colors(&svc, &cx, current()).await;
+    let cleared = auto_color::clear_colors(&svc, current()).await;
     assert!(cleared > 0, "Should have cleared some tracks");
 
     // Verify all colors are gone
-    let tracks = svc.get_tracks(&cx, current()).await;
+    let tracks = svc.get_tracks(current()).await;
     for track in &tracks {
         assert_eq!(
             track.color, None,
@@ -260,19 +243,18 @@ async fn clear_colors_resets_all() {
 #[tokio::test]
 async fn apply_color_map_uses_provided_colors() {
     let svc = setup_marc_martel().await;
-    let cx = test_ctx();
 
     // Create a custom color map — just color "Vocal" and "Bass DI"
     let mut custom_map = std::collections::HashMap::new();
     custom_map.insert("Vocal".to_string(), color_palette::Color::hex(0xFF0000));
     custom_map.insert("Bass DI".to_string(), color_palette::Color::hex(0x00FF00));
 
-    let tracks = svc.get_tracks(&cx, current()).await;
-    let colored = auto_color::apply_color_map(&svc, &cx, current(), &tracks, &custom_map).await;
+    let tracks = svc.get_tracks(current()).await;
+    let colored = auto_color::apply_color_map(&svc, current(), &tracks, &custom_map).await;
     assert_eq!(colored, 2, "Should color exactly 2 tracks");
 
     // Verify only those tracks got colored
-    let tracks = svc.get_tracks(&cx, current()).await;
+    let tracks = svc.get_tracks(current()).await;
     let vocal = tracks.iter().find(|t| t.name == "Vocal").unwrap();
     assert_eq!(vocal.color, Some(0xFF0000));
 

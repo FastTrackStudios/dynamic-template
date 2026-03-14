@@ -103,7 +103,7 @@ mod tests {
             // -- Setup & Fixtures
             let (input, expected) = test_cases::kick_matches_group_and_has_original_name();
             let config = isolated_config();
-            let parser = Parser::new(config);
+            let parser = Parser::new(&config);
 
             // -- Exec
             let item = parser.parse(input.to_string())?;
@@ -122,7 +122,7 @@ mod tests {
             // -- Setup & Fixtures
             let (input, mut expected) = test_cases::kick_in_parses_multi_mic();
             let config = isolated_config();
-            let parser = Parser::new(config.clone());
+            let parser = Parser::new(&config);
 
             // -- Exec
             let item = parser.parse(input.to_string())?;
@@ -145,7 +145,7 @@ mod tests {
             // -- Setup & Fixtures
             let input = "Kick In";
             let config = isolated_config();
-            let parser = Parser::new(config);
+            let parser = Parser::new(&config);
 
             // -- Exec
             let item = parser.parse(input.to_string())?;
@@ -165,7 +165,7 @@ mod tests {
             // -- Setup & Fixtures
             let (input, mut expected) = test_cases::kick_out_parses_multi_mic();
             let config = isolated_config();
-            let parser = Parser::new(config);
+            let parser = Parser::new(&config);
 
             // -- Exec
             let item = parser.parse(input.to_string())?;
@@ -185,7 +185,7 @@ mod tests {
             // -- Setup & Fixtures
             let input = "Kick Out";
             let config = isolated_config();
-            let parser = Parser::new(config);
+            let parser = Parser::new(&config);
 
             // -- Exec
             let item = parser.parse(input.to_string())?;
@@ -210,7 +210,7 @@ mod tests {
             // -- Setup & Fixtures
             let (input, mut expected) = test_cases::kick_matches_group_and_has_original_name();
             let config = default_config();
-            let parser = Parser::new(config.clone());
+            let parser = Parser::new(&config);
 
             // -- Exec
             let item = parser.parse(input.to_string())?;
@@ -236,7 +236,7 @@ mod tests {
             // -- Setup & Fixtures
             let (input, mut expected) = test_cases::kick_in_parses_multi_mic();
             let config = default_config();
-            let parser = Parser::new(config.clone());
+            let parser = Parser::new(&config);
 
             // -- Exec
             let item = parser.parse(input.to_string())?;
@@ -262,7 +262,7 @@ mod tests {
             // -- Setup & Fixtures
             let input = "Kick In";
             let config = default_config();
-            let parser = Parser::new(config);
+            let parser = Parser::new(&config);
 
             // -- Exec
             let item = parser.parse(input.to_string())?;
@@ -282,7 +282,7 @@ mod tests {
             // -- Setup & Fixtures
             let (input, mut expected) = test_cases::kick_out_parses_multi_mic();
             let config = default_config();
-            let parser = Parser::new(config.clone());
+            let parser = Parser::new(&config);
 
             // -- Exec
             let item = parser.parse(input.to_string())?;
@@ -308,7 +308,7 @@ mod tests {
             // -- Setup & Fixtures
             let input = "Kick Out";
             let config = default_config();
-            let parser = Parser::new(config);
+            let parser = Parser::new(&config);
 
             // -- Exec
             let item = parser.parse(input.to_string())?;

@@ -17,12 +17,15 @@ dynamic-template = { path = "crates/dynamic-template" }
 # Monarchy hierarchy framework
 monarchy = { git = "https://github.com/FastTrackStudios/monarchy.git", branch = "main" }
 
-# Facet reflection framework
-facet = { git = "https://github.com/facet-rs/facet", branch = "main" }
+# Facet reflection framework — matches monarchy's facet version
+facet = "0.44"
+facet-core = "0.44"
+facet-format = "0.44"
+facet-json = "0.44"
+facet-value = "0.44"
 
 # ROAM service framework (pinned — latest main needs peeps sub-crates not yet published)
-roam = { git = "https://github.com/bearcove/roam.git", rev = "30a8e10" }
-roam-wire = { git = "https://github.com/bearcove/roam.git", rev = "30a8e10" }
+roam = { git = "https://github.com/bearcove/roam.git", branch = "main" }
 
 # Sibling repos (local paths)
 daw-proto = { path = "../daw/crates/daw-proto" }

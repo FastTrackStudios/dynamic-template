@@ -447,7 +447,7 @@ mod tests {
         let config = default_config();
 
         // -- Exec
-        let result = monarchy_sort(inputs, config)?;
+        let result = monarchy_sort(inputs, &config)?;
 
         // -- Check
         // Guitars is not transparent, so it keeps its name even with a single item
@@ -471,7 +471,7 @@ mod tests {
         let config = default_config();
 
         // -- Exec
-        let result = monarchy_sort(inputs, config)?;
+        let result = monarchy_sort(inputs, &config)?;
 
         // -- Check
         // The structure should be:
@@ -514,7 +514,7 @@ mod tests {
         let config = default_config();
 
         // -- Exec
-        let result = monarchy_sort(inputs, config)?;
+        let result = monarchy_sort(inputs, &config)?;
 
         // -- Check
         // Structure should be:

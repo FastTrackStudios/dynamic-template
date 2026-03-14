@@ -49,12 +49,12 @@ fn def_leppard_pour_some_sugar() -> Result<()> {
     // --- Drums ---
     // Two drum bus prints plus snare loop (classified via "snareloop" pattern)
     let drums = TrackGroup::folder("Drums")
+        .track("Snare")
+        .item("03_snareloop.wav")
         .track("Drum Kit 1")
         .item("01_Drums1.wav")
         .track("Drum Kit 2")
         .item("02_Drum2.wav")
-        .track("Snare")
-        .item("03_snareloop.wav")
         .end();
 
     // --- Bass ---

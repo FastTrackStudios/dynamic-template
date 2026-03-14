@@ -8,7 +8,6 @@ publish = false
 dynamic-template.workspace = true
 daw-proto.workspace = true
 daw-standalone.workspace = true
-roam-wire.workspace = true
 monarchy.workspace = true
 roam.workspace = true
 color-palette.workspace = true

@@ -41,7 +41,7 @@ fn beatles_girl() -> Result<()> {
 
     // -- Exec
     // Step 1: Initial sort using monarchy
-    let mut structure = monarchy_sort(items, config.clone())?;
+    let mut structure = monarchy_sort(items, &config)?;
 
     // Step 2: Move all BGV performer tracks from Unsorted to BGVs in one operation
     // Moving all at once allows the organizer to see multiple performers and create subfolders

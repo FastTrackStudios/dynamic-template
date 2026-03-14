@@ -12,7 +12,6 @@ use color_palette::Color;
 use daw_proto::track::{Track, TrackRef, TrackService};
 use daw_proto::ProjectContext;
 use monarchy::Metadata;
-use roam::session::Context;
 use std::collections::HashMap;
 
 /// Classify track names via monarchy sort and return a color mapping.
@@ -75,10 +74,9 @@ fn collect_colors_from_structure<M: Metadata>(
 /// Returns the number of tracks that were colored.
 pub async fn apply_colors(
     service: &impl TrackService,
-    cx: &Context,
     project: ProjectContext,
 ) -> u32 {
-    let tracks = service.get_tracks(cx, project.clone()).await;
+    let tracks = service.get_tracks(project.clone()).await;
     if tracks.is_empty() {
         return 0;
     }
@@ -86,7 +84,7 @@ pub async fn apply_colors(
     let names: Vec<String> = tracks.iter().map(|t| t.name.clone()).collect();
     let color_map = classify_and_color(names);
 
-    apply_color_map(service, cx, project, &tracks, &color_map).await
+    apply_color_map(service, project, &tracks, &color_map).await
 }
 
 /// Apply a pre-computed color map to tracks.
@@ -97,7 +95,6 @@ pub async fn apply_colors(
 /// Returns the number of tracks that were colored.
 pub async fn apply_color_map(
     service: &impl TrackService,
-    cx: &Context,
     project: ProjectContext,
     tracks: &[Track],
     color_map: &HashMap<String, Color>,
@@ -108,7 +105,7 @@ pub async fn apply_color_map(
         if let Some(color) = color_map.get(&track.name) {
             let rgb = color.to_hex();
             service
-                .set_track_color(cx, project.clone(), TrackRef::Guid(track.guid.clone()), rgb)
+                .set_track_color(project.clone(), TrackRef::Guid(track.guid.clone()), rgb)
                 .await;
             colored += 1;
         }
@@ -124,15 +121,14 @@ pub async fn apply_color_map(
 /// Returns the number of tracks cleared.
 pub async fn clear_colors(
     service: &impl TrackService,
-    cx: &Context,
     project: ProjectContext,
 ) -> u32 {
-    let tracks = service.get_tracks(cx, project.clone()).await;
+    let tracks = service.get_tracks(project.clone()).await;
     let mut cleared = 0u32;
 
     for track in &tracks {
         service
-            .set_track_color(cx, project.clone(), TrackRef::Guid(track.guid.clone()), 0)
+            .set_track_color(project.clone(), TrackRef::Guid(track.guid.clone()), 0)
             .await;
         cleared += 1;
     }

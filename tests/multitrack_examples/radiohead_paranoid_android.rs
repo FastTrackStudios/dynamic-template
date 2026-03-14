@@ -82,7 +82,7 @@ fn radiohead_paranoid_android() -> Result<()> {
     let config = default_config();
 
     // -- Exec
-    let mut structure = monarchy_sort(items, config.clone())?;
+    let mut structure = monarchy_sort(items, &config)?;
 
     println!("\n=== STEP 1: Initial monarchy_sort ===");
     println!("{}", structure);
