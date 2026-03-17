@@ -11,6 +11,7 @@ license = "MIT OR Apache-2.0"
 [workspace.dependencies]
 # Internal crates
 color-palette = { path = "crates/color-palette" }
+music-catalog = { path = "crates/music-catalog" }
 dynamic-template-proto = { path = "crates/dynamic-template-proto" }
 dynamic-template = { path = "crates/dynamic-template" }
 

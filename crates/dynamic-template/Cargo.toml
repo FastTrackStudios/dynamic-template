@@ -17,6 +17,7 @@ dynamic-template-proto = { workspace = true }
 daw-proto = { workspace = true }
 monarchy = { workspace = true }
 color-palette = { workspace = true }
+music-catalog = { workspace = true }
 facet = { workspace = true }
 roam = { workspace = true }
 serde = { workspace = true }
