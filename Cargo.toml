@@ -41,6 +41,16 @@ anyhow = "1.0"
 # Async runtime
 tokio = { version = "1.48", features = ["full"] }
 
+# ── Local development overrides ──────────────────────────────────────
+# Uncomment to use local checkouts instead of GitHub.
+#
+# [patch."https://github.com/FastTrackStudios/daw.git"]
+# daw-proto = { path = "../daw/crates/daw-proto" }
+# daw-standalone = { path = "../daw/crates/daw-standalone" }
+#
+# [patch."https://github.com/FastTrackStudios/input_actions.git"]
+# actions-proto = { path = "../input_actions/crates/actions-proto" }
+
 [workspace.lints.rust]
 unused = "warn"
 dead_code = "allow"
