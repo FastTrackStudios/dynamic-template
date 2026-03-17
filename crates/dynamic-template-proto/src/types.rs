@@ -57,6 +57,8 @@ pub struct OrganizeOptions {
     pub strip_protools: bool,
     /// Strip equipment names (mics, preamps) from display names
     pub strip_equipment: bool,
+    /// Detect and group stem-split outputs (Demucs, LALAL.ai, etc.)
+    pub detect_stem_splits: bool,
 }
 
 impl Default for OrganizeOptions {
@@ -70,6 +72,7 @@ impl Default for OrganizeOptions {
             strip_tempo: true,
             strip_protools: true,
             strip_equipment: true,
+            detect_stem_splits: true,
         }
     }
 }
@@ -85,6 +88,7 @@ impl OrganizeOptions {
             strip_tempo: false,
             strip_protools: false,
             strip_equipment: false,
+            detect_stem_splits: false,
         }
     }
 
@@ -98,6 +102,7 @@ impl OrganizeOptions {
             strip_tempo: false,
             strip_protools: false,
             strip_equipment: false,
+            detect_stem_splits: true,
         }
     }
 }

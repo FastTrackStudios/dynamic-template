@@ -19,7 +19,7 @@ mod tempo;
 pub use error::{Error, Result};
 pub use groups::{
     Bass, Choir, Drums, Guide, Guitars, Harmonica, Horns, Keys, Orchestra, Percussion, Reference,
-    Strings, Synths, Vocals, SFX,
+    StemSplit, Strings, Synths, Vocals, SFX,
 };
 pub use item_metadata::ItemMetadata;
 
@@ -29,6 +29,7 @@ pub use protools::{extract_protools_metadata, strip_protools_markers, ProToolsMe
 pub use song_name::{
     detect_song_names, detect_song_names_with_config, strip_song_names, SongNameConfig,
 };
+pub use groups::stem_split::is_stem_split_set;
 pub use tempo::{extract_tempo, strip_tempo};
 
 // endregion: --- Modules
@@ -68,6 +69,7 @@ pub fn default_config() -> DynamicTemplateConfig {
         // Utility tracks at the bottom
         .group(Guide)
         .group(Reference)
+        .group(StemSplit)
         .build()
 }
 
