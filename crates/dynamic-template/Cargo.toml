@@ -19,7 +19,7 @@ monarchy = { workspace = true }
 color-palette = { workspace = true }
 music-catalog = { workspace = true }
 facet = { workspace = true }
-roam = { workspace = true }
+vox = { workspace = true }
 serde = { workspace = true }
 serde_json = "1.0"
 thiserror = { workspace = true }

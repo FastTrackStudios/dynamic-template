@@ -4,7 +4,7 @@
 //! track hierarchies.
 
 use crate::types::*;
-use roam::service;
+use vox::service;
 
 /// Service for dynamic template organization
 ///

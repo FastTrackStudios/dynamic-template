@@ -11,7 +11,7 @@ categories = ["multimedia::audio"]
 [dependencies]
 facet = { workspace = true }
 daw-proto = { workspace = true }
-roam = { workspace = true }
+vox = { workspace = true }
 thiserror = { workspace = true }
 actions-proto = { workspace = true }
 
