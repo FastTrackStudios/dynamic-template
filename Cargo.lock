@@ -812,6 +812,7 @@ checksum = "be1e0bca6c3637f992fc1cc7cbc52a78c1ef6db076dbf1059c4323d6a2048376"
 [[package]]
 name = "daw"
 version = "0.1.0"
+source = "git+https://github.com/FastTrackStudios/daw.git?branch=main#3db08ea70869aab2a6244e4855918f41014cfe26"
 dependencies = [
  "daw-control",
  "daw-proto",
@@ -820,6 +821,7 @@ dependencies = [
 [[package]]
 name = "daw-control"
 version = "0.1.0"
+source = "git+https://github.com/FastTrackStudios/daw.git?branch=main#3db08ea70869aab2a6244e4855918f41014cfe26"
 dependencies = [
  "daw-proto",
  "eyre",
@@ -833,6 +835,7 @@ dependencies = [
 [[package]]
 name = "daw-extension-runtime"
 version = "0.1.0"
+source = "git+https://github.com/FastTrackStudios/daw.git?branch=main#3db08ea70869aab2a6244e4855918f41014cfe26"
 dependencies = [
  "daw",
  "eyre",
@@ -847,6 +850,7 @@ dependencies = [
 [[package]]
 name = "daw-proto"
 version = "0.1.0"
+source = "git+https://github.com/FastTrackStudios/daw.git?branch=main#3db08ea70869aab2a6244e4855918f41014cfe26"
 dependencies = [
  "actions-proto",
  "facet",
@@ -857,7 +861,7 @@ dependencies = [
 [[package]]
 name = "daw-standalone"
 version = "0.1.0"
-source = "git+https://github.com/FastTrackStudios/daw.git?branch=main#7a9501619b3a64c11c0d6a17f3df6b75936d98fd"
+source = "git+https://github.com/FastTrackStudios/daw.git?branch=main#3db08ea70869aab2a6244e4855918f41014cfe26"
 dependencies = [
  "async-lock",
  "daw-proto",
@@ -1063,7 +1067,7 @@ dependencies = [
 [[package]]
 name = "engraver"
 version = "0.1.0"
-source = "git+https://github.com/FastTrackStudios/keyflow.git?branch=main#25c48281992b75fa9d04a4be4a32b45810409352"
+source = "git+https://github.com/FastTrackStudios/keyflow.git?branch=main#5cdd4451d631aaf408038eabb38ac03d2b0f40e6"
 dependencies = [
  "engraver-proto",
 ]
@@ -1071,7 +1075,7 @@ dependencies = [
 [[package]]
 name = "engraver-proto"
 version = "0.1.0"
-source = "git+https://github.com/FastTrackStudios/keyflow.git?branch=main#25c48281992b75fa9d04a4be4a32b45810409352"
+source = "git+https://github.com/FastTrackStudios/keyflow.git?branch=main#5cdd4451d631aaf408038eabb38ac03d2b0f40e6"
 dependencies = [
  "anyrender",
  "bitflags 2.11.0",
@@ -1535,6 +1539,7 @@ checksum = "aa9a19cbb55df58761df49b23516a86d432839add4af60fc256da840f66ed35b"
 [[package]]
 name = "fts-devtools"
 version = "0.1.0"
+source = "git+https://github.com/FastTrackStudios/daw.git?branch=main#3db08ea70869aab2a6244e4855918f41014cfe26"
 
 [[package]]
 name = "futf"
@@ -2201,7 +2206,7 @@ dependencies = [
 [[package]]
 name = "keyflow"
 version = "0.1.0"
-source = "git+https://github.com/FastTrackStudios/keyflow.git?branch=main#25c48281992b75fa9d04a4be4a32b45810409352"
+source = "git+https://github.com/FastTrackStudios/keyflow.git?branch=main#5cdd4451d631aaf408038eabb38ac03d2b0f40e6"
 dependencies = [
  "color-eyre",
  "colored",
@@ -2221,7 +2226,7 @@ dependencies = [
 [[package]]
 name = "keyflow-proto"
 version = "0.1.0"
-source = "git+https://github.com/FastTrackStudios/keyflow.git?branch=main#25c48281992b75fa9d04a4be4a32b45810409352"
+source = "git+https://github.com/FastTrackStudios/keyflow.git?branch=main#5cdd4451d631aaf408038eabb38ac03d2b0f40e6"
 dependencies = [
  "color-palette 0.1.0 (git+https://github.com/FastTrackStudios/dynamic-template.git?branch=main)",
  "daw-proto",
@@ -2238,7 +2243,7 @@ dependencies = [
 [[package]]
 name = "keyflow-text"
 version = "0.1.0"
-source = "git+https://github.com/FastTrackStudios/keyflow.git?branch=main#25c48281992b75fa9d04a4be4a32b45810409352"
+source = "git+https://github.com/FastTrackStudios/keyflow.git?branch=main#5cdd4451d631aaf408038eabb38ac03d2b0f40e6"
 dependencies = [
  "keyflow-proto",
  "tracing",
@@ -2698,6 +2703,7 @@ dependencies = [
 [[package]]
 name = "moire-trace-capture"
 version = "1.0.0"
+source = "git+https://github.com/bearcove/moire?rev=13eac79#13eac79c1b128282dd792a611319d0a1016ad15d"
 dependencies = [
  "libc",
  "moire-trace-types",
@@ -2750,7 +2756,7 @@ dependencies = [
 [[package]]
 name = "monarchy"
 version = "0.1.0"
-source = "git+https://github.com/FastTrackStudios/monarchy.git?branch=main#183959be7223bb735c2adfac17e8da6c5acdd79b"
+source = "git+https://github.com/FastTrackStudios/monarchy.git?branch=main#b5efa6bce31cfd009f9f042403a034f89dabd2ab"
 dependencies = [
  "facet",
  "facet-json",
@@ -2765,7 +2771,7 @@ dependencies = [
 [[package]]
 name = "monarchy_derive"
 version = "0.1.0"
-source = "git+https://github.com/FastTrackStudios/monarchy.git?branch=main#183959be7223bb735c2adfac17e8da6c5acdd79b"
+source = "git+https://github.com/FastTrackStudios/monarchy.git?branch=main#b5efa6bce31cfd009f9f042403a034f89dabd2ab"
 dependencies = [
  "convert_case 0.6.0",
  "proc-macro2",

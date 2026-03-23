@@ -52,12 +52,13 @@ tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 eyre = "0.6"
 
 # ── Local development overrides ──────────────────────────────────────
-[patch."https://github.com/FastTrackStudios/daw.git"]
-daw = { path = "../daw/crates/daw" }
-daw-proto = { path = "../daw/crates/daw-proto" }
-daw-control = { path = "../daw/crates/daw-control" }
-daw-extension-runtime = { path = "../daw/crates/daw-extension-runtime" }
-fts-devtools = { path = "../daw/crates/fts-devtools" }
+# Uncomment for local development:
+# [patch."https://github.com/FastTrackStudios/daw.git"]
+# daw = { path = "../daw/crates/daw" }
+# daw-proto = { path = "../daw/crates/daw-proto" }
+# daw-control = { path = "../daw/crates/daw-control" }
+# daw-extension-runtime = { path = "../daw/crates/daw-extension-runtime" }
+# fts-devtools = { path = "../daw/crates/fts-devtools" }
 #
 # [patch."https://github.com/FastTrackStudios/input_actions.git"]
 # actions-proto = { path = "../input_actions/crates/actions-proto" }
@@ -65,10 +66,6 @@ fts-devtools = { path = "../daw/crates/fts-devtools" }
 # ── Vendored patches ──────────────────────────────────────────────────
 # moire: unify crates.io moire with the git rev that vox pulls in,
 # avoiding duplicate moire-runtime #[ctor] registrations that crash.
-# moire-trace-capture: tolerate broken frame-pointer chains (NixOS glibc).
-[patch."https://github.com/bearcove/moire"]
-moire-trace-capture = { path = "../forks/moire-trace-capture" }
-
 [patch.crates-io]
 moire = { git = "https://github.com/bearcove/moire", rev = "13eac79" }
 moire-macros-noop = { git = "https://github.com/bearcove/moire", rev = "13eac79" }
