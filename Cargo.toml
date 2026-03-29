@@ -26,7 +26,7 @@ facet-json = "0.44"
 facet-value = "0.44"
 
 # ROAM service framework (pinned — latest main needs peeps sub-crates not yet published)
-vox = { git = "https://github.com/bearcove/vox.git", rev = "53bff48" }
+vox = { git = "https://github.com/Codys-Wright/vox.git", rev = "2a2f793b" }
 
 # Sibling repos
 daw = { git = "https://github.com/FastTrackStudios/daw.git", branch = "main" }
