@@ -5,6 +5,7 @@ use monarchy::*;
 
 pub mod auto_color;
 pub mod colors;
+pub mod daw_module;
 pub mod equipment;
 mod error;
 mod groups;
